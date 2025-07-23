@@ -1,5 +1,5 @@
 # website-portfolio
-My website portfolio to introduce myself and showcase my projects and skills
+My website portfolio created to introduce myself and showcase my projects and skills.
 
 This site is built with **MongoDB, Express.js, React, and Node.js** (plus TailwindCSS).  
 Sections: **Home · Projects · Resume/Skills · Contact**

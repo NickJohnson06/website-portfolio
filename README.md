@@ -23,7 +23,7 @@ npm --prefix server install
 npm --prefix client install
 
 # 2. Set env vars
-cp .env.example .env   # then fill values
+cd /server/.env   # then fill values
 
 # 3. Run both dev servers
 npm run dev

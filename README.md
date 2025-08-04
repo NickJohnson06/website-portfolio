@@ -10,7 +10,7 @@ Sections: **Home · Projects · Resume/Skills · Contact**
 - **Frontend:** React, React Router, Vite, TailwindCSS  
 - **Backend:** Node.js, Express  
 - **Database:** MongoDB 
-- **Email:** Nodemailer or Resend
+- **Email:** Nodemailer
 
 ---
 
@@ -27,3 +27,4 @@ cp .env.example .env   # then fill values
 
 # 3. Run both dev servers
 npm run dev
+

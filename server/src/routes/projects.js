@@ -1,11 +1,17 @@
 import express from "express";
-import Project from "../models/Project";
+import { getDB } from "../db.js";
+import { ObjectId } from "mongodb";
 
 const router = express.Router();
 
 // GET all projects
 router.get("/", async (req, res) => {
     try {
+        const db = getDB();
+        if (!db) {
+            return res.status(500).json({ error: "Database not connected" });
+        }
+
         const {
             category,
             technology,
@@ -33,12 +39,14 @@ router.get("/", async (req, res) => {
 
         const skip = (parseInt(page) - 1) * parseInt(limit);
 
-        const projects = await Project.find(filter)
-        .sort(sortObj)
-        .limit(parseInt(limit))
-        .skip(skip)
+        const projects = await db.collection("projects")
+            .find(filter)
+            .sort(sortObj)
+            .limit(parseInt(limit))
+            .skip(skip)
+            .toArray();
         
-        const total = await Project.countDocuments(filter);
+        const total = await db.collection("projects").countDocuments(filter);
 
         res.json({
             projects,
@@ -58,7 +66,15 @@ router.get("/", async (req, res) => {
 // GET featured projects
 router.get("/featured", async (req, res) => {
     try {
-        const projects = await Project.getFeatured();
+        const db = getDB();
+        if (!db) {
+            return res.status(500).json({ error: "Database not connected" });
+        }
+
+        const projects = await db.collection("projects")
+            .find({ featured: true, isPublic: true })
+            .sort({ order: 1, createdAt: -1 })
+            .toArray();
         res.json(projects);
     } catch (error) {
         console.error("Error fetching featured projects:", error);
@@ -69,8 +85,16 @@ router.get("/featured", async (req, res) => {
 // GET projects by category
 router.get("/category/:category", async (req, res) => {
     try {
+        const db = getDB();
+        if (!db) {
+            return res.status(500).json({ error: "Database not connected" });
+        }
+
         const { category } = req.params;
-        const projects = await Project.getByCategory(category);
+        const projects = await db.collection("projects")
+            .find({ category, isPublic: true })
+            .sort({ order: 1, createdAt: -1 })
+            .toArray();
         res.json(projects);
     } catch (error) {
         console.error("Error fetching projects by category:", error);
@@ -81,8 +105,19 @@ router.get("/category/:category", async (req, res) => {
 // GET projects by technology
 router.get("/technology/:technology", async (req, res) => {
     try {
+        const db = getDB();
+        if (!db) {
+            return res.status(500).json({ error: "Database not connected" });
+        }
+
         const { technology } = req.params;
-        const projects = await Project.getByTechnology(technology);
+        const projects = await db.collection("projects")
+            .find({ 
+                technologies: { $in: [technology] }, 
+                isPublic: true 
+            })
+            .sort({ order: 1, createdAt: -1 })
+            .toArray();
         res.json(projects);
     } catch (error) {
         console.error("Error fetching projects by technology:", error);
@@ -93,7 +128,19 @@ router.get("/technology/:technology", async (req, res) => {
 // GET single project by ID
 router.get("/:id", async (req, res) => {
     try {
-        const project = await Project.findById(req.params.id);
+        const db = getDB();
+        if (!db) {
+            return res.status(500).json({ error: "Database not connected" });
+        }
+
+        let projectId;
+        try {
+            projectId = new ObjectId(req.params.id);
+        } catch (error) {
+            return res.status(400).json({ error: "Invalid project ID" });
+        }
+
+        const project = await db.collection("projects").findOne({ _id: projectId });
         if (!project) {
             return res.status(404).json({ error: "Project not found" });
         }
@@ -105,9 +152,6 @@ router.get("/:id", async (req, res) => {
         res.json(project);
     } catch (error) {
         console.error("Error fetching project:", error);
-        if (error.kind === 'ObjectId') {
-            return res.status(400).json({ error: "Invalid project ID" });
-        }
         res.status(500).json({ error: "Failed to fetch project" });
     }
 });
@@ -115,6 +159,11 @@ router.get("/:id", async (req, res) => {
 // POST create new project
 router.post("/", async (req, res) => {
     try {
+      const db = getDB();
+      if (!db) {
+        return res.status(500).json({ error: "Database not connected" });
+      }
+
       const projectData = req.body;
       
       // Ensure required fields are present
@@ -129,19 +178,24 @@ router.post("/", async (req, res) => {
           error: "At least one technology is required" 
         });
       }
+
+      // Add timestamps and defaults
+      const newProject = {
+        ...projectData,
+        createdAt: new Date(),
+        updatedAt: new Date(),
+        isPublic: projectData.isPublic !== undefined ? projectData.isPublic : true,
+        featured: projectData.featured || false,
+        order: projectData.order || 0,
+        status: projectData.status || "completed"
+      };
   
-      const project = new Project(projectData);
-      await project.save();
+      const result = await db.collection("projects").insertOne(newProject);
+      const createdProject = await db.collection("projects").findOne({ _id: result.insertedId });
       
-      res.status(201).json(project);
+      res.status(201).json(createdProject);
     } catch (error) {
       console.error("Error creating project:", error);
-      
-      if (error.name === 'ValidationError') {
-        const errors = Object.values(error.errors).map(err => err.message);
-        return res.status(400).json({ error: errors.join(', ') });
-      }
-      
       res.status(500).json({ error: "Failed to create project" });
     }
 });
@@ -149,30 +203,37 @@ router.post("/", async (req, res) => {
 // PUT update project
 router.put("/:id", async (req, res) => {
     try {
+      const db = getDB();
+      if (!db) {
+        return res.status(500).json({ error: "Database not connected" });
+      }
+
+      let projectId;
+      try {
+        projectId = new ObjectId(req.params.id);
+      } catch (error) {
+        return res.status(400).json({ error: "Invalid project ID" });
+      }
+
       const projectData = req.body;
-      const project = await Project.findByIdAndUpdate(
-        req.params.id,
-        projectData,
-        { new: true, runValidators: true }
+      const updateData = {
+        ...projectData,
+        updatedAt: new Date()
+      };
+
+      const result = await db.collection("projects").findOneAndUpdate(
+        { _id: projectId },
+        { $set: updateData },
+        { returnDocument: 'after' }
       );
   
-      if (!project) {
+      if (!result.value) {
         return res.status(404).json({ error: "Project not found" });
       }
   
-      res.json(project);
+      res.json(result.value);
     } catch (error) {
       console.error("Error updating project:", error);
-      
-      if (error.name === 'ValidationError') {
-        const errors = Object.values(error.errors).map(err => err.message);
-        return res.status(400).json({ error: errors.join(', ') });
-      }
-      
-      if (error.kind === 'ObjectId') {
-        return res.status(400).json({ error: "Invalid project ID" });
-      }
-      
       res.status(500).json({ error: "Failed to update project" });
     }
 });
@@ -180,20 +241,27 @@ router.put("/:id", async (req, res) => {
 // DELETE project
 router.delete("/:id", async (req, res) => {
     try {
-      const project = await Project.findByIdAndDelete(req.params.id);
+      const db = getDB();
+      if (!db) {
+        return res.status(500).json({ error: "Database not connected" });
+      }
+
+      let projectId;
+      try {
+        projectId = new ObjectId(req.params.id);
+      } catch (error) {
+        return res.status(400).json({ error: "Invalid project ID" });
+      }
+
+      const result = await db.collection("projects").findOneAndDelete({ _id: projectId });
       
-      if (!project) {
+      if (!result.value) {
         return res.status(404).json({ error: "Project not found" });
       }
   
       res.json({ message: "Project deleted successfully" });
     } catch (error) {
       console.error("Error deleting project:", error);
-      
-      if (error.kind === 'ObjectId') {
-        return res.status(400).json({ error: "Invalid project ID" });
-      }
-      
       res.status(500).json({ error: "Failed to delete project" });
     }
 });
@@ -201,7 +269,12 @@ router.delete("/:id", async (req, res) => {
 // GET project statistics
 router.get("/stats/overview", async (req, res) => {
     try {
-      const stats = await Project.aggregate([
+      const db = getDB();
+      if (!db) {
+        return res.status(500).json({ error: "Database not connected" });
+      }
+
+      const stats = await db.collection("projects").aggregate([
         { $match: { isPublic: true } },
         {
           $group: {
@@ -221,7 +294,7 @@ router.get("/stats/overview", async (req, res) => {
             technologies: { $reduce: { input: "$technologies", initialValue: [], in: { $concatArrays: ["$$value", "$$this"] } } }
           }
         }
-      ]);
+      ]).toArray();
   
       if (stats.length === 0) {
         return res.json({

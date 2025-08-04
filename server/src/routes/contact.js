@@ -1,6 +1,7 @@
 import express from "express";
 import { sendContactEmail, sendAutoReply, testEmailConfig } from "../utils/mailer.js";
 
+
 const router = express.Router();
 
 // Simple rate limiting store (in production, use Redis or a proper rate limiter)

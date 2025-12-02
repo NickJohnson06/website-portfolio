@@ -14,14 +14,14 @@ const ProjectCard = ({ project }) => {
         <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-20 transition-all duration-300" />
       </div>
 
-      <h3 className="text-xl font-semibold text-gray-900 mb-2">{title}</h3>
-      <p className="text-gray-600 mb-4 line-clamp-3">{description}</p>
+      <h3 className="text-xl font-semibold text-gray-100 mb-2">{title}</h3>
+      <p className="text-gray-400 mb-4 line-clamp-3">{description}</p>
 
       <div className="flex flex-wrap gap-2 mb-4">
         {technologies.map((tech, index) => (
           <span
             key={index}
-            className="px-3 py-1 bg-primary-100 text-primary-700 text-sm rounded-full"
+            className="px-3 py-1 bg-primary-500/20 text-primary-400 text-sm rounded-full border border-primary-500/30"
           >
             {tech}
           </span>

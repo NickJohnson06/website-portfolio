@@ -110,11 +110,11 @@ const Projects = () => {
 
   if (loading) {
     return (
-      <div className="section-padding">
+      <div className="section-padding bg-gradient-to-b from-dark-950 to-dark-900">
         <div className="max-w-7xl mx-auto">
           <div className="text-center">
-            <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-primary-600 mx-auto"></div>
-            <p className="mt-4 text-gray-600">Loading projects...</p>
+            <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-primary-400 mx-auto"></div>
+            <p className="mt-4 text-gray-400">Loading projects...</p>
           </div>
         </div>
       </div>
@@ -122,14 +122,14 @@ const Projects = () => {
   }
 
   return (
-    <div className="section-padding">
+    <div className="section-padding bg-gradient-to-b from-dark-950 to-dark-900">
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <div className="text-center mb-16">
-          <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+          <h1 className="text-4xl md:text-5xl font-bold text-gray-100 mb-4">
             My Projects
           </h1>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+          <p className="text-xl text-gray-400 max-w-3xl mx-auto">
             Here are some of the projects I've worked on. Each one represents a unique challenge
             and learning experience in my journey as a developer.
           </p>
@@ -141,9 +141,9 @@ const Projects = () => {
             <button
               key={category.id}
               onClick={() => setSelectedCategory(category.id)}
-              className={`px-6 py-2 rounded-full font-medium transition-colors duration-200 ${selectedCategory === category.id
-                  ? 'bg-primary-600 text-white'
-                  : 'bg-gray-200 text-gray-700 hover:bg-gray-300'
+              className={`px-6 py-2 rounded-full font-medium transition-all duration-300 ${selectedCategory === category.id
+                ? 'bg-gradient-to-r from-primary-600 to-primary-500 text-dark-900 shadow-lg shadow-primary-500/30'
+                : 'bg-dark-800/50 text-gray-300 hover:bg-dark-700/70 border border-gray-700 hover:border-primary-500/50'
                 }`}
             >
               {category.name}
@@ -154,7 +154,7 @@ const Projects = () => {
         {/* Projects Grid */}
         {filteredProjects.length === 0 ? (
           <div className="text-center py-12">
-            <p className="text-gray-600 text-lg">No projects found in this category.</p>
+            <p className="text-gray-400 text-lg">No projects found in this category.</p>
           </div>
         ) : (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">

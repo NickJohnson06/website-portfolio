@@ -1,17 +1,7 @@
 import { Link } from 'react-router-dom'
 import { ArrowRight, Download, Github, Linkedin, Mail } from 'lucide-react'
-import SkillBar from '../components/SkillBar'
 
 const Home = () => {
-  const skills = [
-    { name: 'JavaScript', percentage: 90 },
-    { name: 'React', percentage: 85 },
-    { name: 'Node.js', percentage: 80 },
-    { name: 'Python', percentage: 75 },
-    { name: 'MongoDB', percentage: 70 },
-    { name: 'AWS', percentage: 65 },
-  ]
-
   const socialLinks = [
     { icon: Github, href: 'https://github.com', label: 'GitHub' },
     { icon: Linkedin, href: 'https://linkedin.com', label: 'LinkedIn' },
@@ -21,63 +11,47 @@ const Home = () => {
   return (
     <div>
       {/* Hero Section */}
-                    <section className="section-padding bg-gradient-to-br from-primary-50 to-gray-400">
-        <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <div>
-              <h1 className="text-4xl md:text-6xl font-bold text-gray-900 mb-6">
-                Hi, I'm <span className="text-primary-600">Nick</span>
-              </h1>
-              <p className="text-xl text-gray-600 mb-8">
-                Full-stack developer passionate about creating innovative web solutions 
-                and turning ideas into reality through clean, efficient code.
-              </p>
-              
-              <div className="flex flex-col sm:flex-row gap-4 mb-8">
-                <Link
-                  to="/projects"
-                  className="btn-primary flex items-center justify-center space-x-2"
-                >
-                  <span>View My Work</span>
-                  <ArrowRight size={16} />
-                </Link>
-                <a
-                  href="/NickResume_NEW.pdf"
-                  download
-                  className="btn-secondary flex items-center justify-center space-x-2"
-                >
-                  <Download size={16} />
-                  <span>Download Resume</span>
-                </a>
-              </div>
+      <section className="min-h-[calc(100vh-4rem)] bg-gradient-to-br from-primary-50 to-gray-400 flex items-center justify-center">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <h1 className="text-5xl md:text-7xl font-bold text-gray-900 mb-8">
+            Hi, I'm <span className="text-primary-600">Nick</span>
+          </h1>
+          <p className="text-xl md:text-2xl text-gray-700 mb-10 max-w-2xl mx-auto leading-relaxed">
+            Full-stack developer passionate about creating innovative web solutions
+            and turning ideas into reality through clean, efficient code.
+          </p>
 
-              <div className="flex space-x-4">
-                {socialLinks.map((social) => (
-                  <a
-                    key={social.label}
-                    href={social.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-gray-600 hover:text-primary-600 transition-colors"
-                    aria-label={social.label}
-                  >
-                    <social.icon size={24} />
-                  </a>
-                ))}
-              </div>
-            </div>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
+            <Link
+              to="/projects"
+              className="btn-primary flex items-center justify-center space-x-2 text-lg px-8 py-3"
+            >
+              <span>View My Work</span>
+              <ArrowRight size={20} />
+            </Link>
+            <a
+              href="/NickResume_NEW.pdf"
+              download
+              className="btn-secondary flex items-center justify-center space-x-2 text-lg px-8 py-3"
+            >
+              <Download size={20} />
+              <span>Download Resume</span>
+            </a>
+          </div>
 
-            <div className="flex justify-center">
-              <div className="relative">
-                <div className="w-80 h-80 bg-gray-400 rounded-full flex items-center justify-center">
-                  <img
-                    src="https://via.placeholder.com/300x300?text=Profile+Photo"
-                    alt="Nick"
-                    className="w-72 h-72 rounded-full object-cover"
-                  />
-                </div>
-              </div>
-            </div>
+          <div className="flex justify-center space-x-8">
+            {socialLinks.map((social) => (
+              <a
+                key={social.label}
+                href={social.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-gray-600 hover:text-primary-600 transition-colors transform hover:scale-110 duration-200"
+                aria-label={social.label}
+              >
+                <social.icon size={32} />
+              </a>
+            ))}
           </div>
         </div>
       </section>
@@ -90,7 +64,7 @@ const Home = () => {
               About Me
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              I'm a passionate full-stack developer with expertise in modern web technologies. 
+              I'm a passionate full-stack developer with expertise in modern web technologies.
               I love solving complex problems and creating user-friendly applications.
             </p>
           </div>
@@ -130,45 +104,6 @@ const Home = () => {
               <p className="text-gray-600">
                 I collaborate effectively with cross-functional teams to deliver exceptional results.
               </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Skills Section */}
-      <section className="section-padding bg-gray-50">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-              Skills & Technologies
-            </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              I work with a variety of technologies to create robust and scalable applications.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-            <div>
-              <h3 className="text-2xl font-semibold text-gray-900 mb-6">Technical Skills</h3>
-              {skills.map((skill) => (
-                <SkillBar key={skill.name} skill={skill.name} percentage={skill.percentage} />
-              ))}
-            </div>
-
-            <div>
-              <h3 className="text-2xl font-semibold text-gray-900 mb-6">Technologies I Use</h3>
-              <div className="grid grid-cols-2 gap-4">
-                {[
-                  'React', 'Node.js', 'Python', 'MongoDB',
-                  'PostgreSQL', 'AWS', 'Docker', 'Git',
-                  'TypeScript', 'Express.js', 'Django', 'Redis'
-                ].map((tech) => (
-                  <div key={tech} className="flex items-center space-x-2">
-                    <div className="w-2 h-2 bg-primary-600 rounded-full"></div>
-                    <span className="text-gray-700">{tech}</span>
-                  </div>
-                ))}
-              </div>
             </div>
           </div>
         </div>

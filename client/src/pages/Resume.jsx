@@ -101,7 +101,7 @@ const Resume = () => {
             My professional journey, skills, and achievements
           </p>
           <a
-            href="/NickResume_NEW.pdf"
+            href="/Nick_Johnson_Resume_copy.pdf"
             download
             className="btn-primary inline-flex items-center space-x-2"
           >
@@ -183,21 +183,6 @@ const Resume = () => {
                 <p className="text-gray-500">{cert.year}</p>
               </div>
             ))}
-          </div>
-        </section>
-
-        {/* Contact CTA */}
-        <section className="text-center">
-          <div className="card">
-            <h3 className="text-2xl font-bold text-gray-900 mb-4">
-              Interested in working together?
-            </h3>
-            <p className="text-gray-600 mb-6">
-              I'm always open to discussing new opportunities and exciting projects.
-            </p>
-            <a href="/contact" className="btn-primary">
-              Get In Touch
-            </a>
           </div>
         </section>
       </div>

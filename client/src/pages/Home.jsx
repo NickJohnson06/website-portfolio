@@ -3,9 +3,9 @@ import { ArrowRight, Download, Github, Linkedin, Mail } from 'lucide-react'
 
 const Home = () => {
   const socialLinks = [
-    { icon: Github, href: 'https://github.com', label: 'GitHub' },
-    { icon: Linkedin, href: 'https://linkedin.com', label: 'LinkedIn' },
-    { icon: Mail, href: 'mailto:contact@example.com', label: 'Email' },
+    { icon: Github, href: 'https://github.com/NickJohnson06', label: 'GitHub' },
+    { icon: Linkedin, href: 'https://www.linkedin.com/in/nick-johnson9006/', label: 'LinkedIn' },
+    { icon: Mail, href: 'mailto:johnsonnick9006@gmail.com', label: 'Mail' },
   ]
 
   return (
@@ -30,7 +30,7 @@ const Home = () => {
               <ArrowRight size={20} />
             </Link>
             <a
-              href="/NickResume_NEW.pdf"
+              href="/Nick_Johnson_Resume_copy.pdf"
               download
               className="btn-secondary flex items-center justify-center space-x-2 text-lg px-8 py-3"
             >

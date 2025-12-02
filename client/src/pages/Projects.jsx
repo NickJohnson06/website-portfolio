@@ -86,7 +86,7 @@ const Projects = () => {
         // In a real app, you would fetch from your API
         // const response = await fetch('/api/projects')
         // const data = await response.json()
-        
+
         // For now, use sample data
         setProjects(sampleProjects)
         setFilteredProjects(sampleProjects)
@@ -130,7 +130,7 @@ const Projects = () => {
             My Projects
           </h1>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Here are some of the projects I've worked on. Each one represents a unique challenge 
+            Here are some of the projects I've worked on. Each one represents a unique challenge
             and learning experience in my journey as a developer.
           </p>
         </div>
@@ -141,11 +141,10 @@ const Projects = () => {
             <button
               key={category.id}
               onClick={() => setSelectedCategory(category.id)}
-              className={`px-6 py-2 rounded-full font-medium transition-colors duration-200 ${
-                selectedCategory === category.id
+              className={`px-6 py-2 rounded-full font-medium transition-colors duration-200 ${selectedCategory === category.id
                   ? 'bg-primary-600 text-white'
                   : 'bg-gray-200 text-gray-700 hover:bg-gray-300'
-              }`}
+                }`}
             >
               {category.name}
             </button>
@@ -164,25 +163,6 @@ const Projects = () => {
             ))}
           </div>
         )}
-
-        {/* Call to Action */}
-        <div className="text-center mt-16">
-          <div className="card max-w-2xl mx-auto">
-            <h3 className="text-2xl font-bold text-gray-900 mb-4">
-              Have a project in mind?
-            </h3>
-            <p className="text-gray-600 mb-6">
-              I'm always interested in new opportunities and exciting projects. 
-              Let's discuss how we can work together!
-            </p>
-            <a
-              href="/contact"
-              className="btn-primary inline-flex items-center space-x-2"
-            >
-              <span>Get In Touch</span>
-            </a>
-          </div>
-        </div>
       </div>
     </div>
   )

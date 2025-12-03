@@ -16,7 +16,7 @@ app.get("/api/health", (_req, res) => res.json({ ok: true }));
 app.use("/api/projects", projectsRouter);
 app.use("/api/contact", contactRouter);
 
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 5001;
 connectDB().then(() => {
   app.listen(PORT, () => console.log(`Server running on: ${PORT}`));
 });

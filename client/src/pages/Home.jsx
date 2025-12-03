@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom'
 import { ArrowRight, Download, Github, Linkedin, Mail } from 'lucide-react'
+import TechStack from '../components/TechStack'
 
 const Home = () => {
   const socialLinks = [
@@ -114,6 +115,9 @@ const Home = () => {
           </div>
         </div>
       </section>
+
+      {/* Tech Stack Showcase */}
+      <TechStack />
     </div>
   )
 }

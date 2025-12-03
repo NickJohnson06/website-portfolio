@@ -1,8 +1,7 @@
 import { useState } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import { Menu, X } from 'lucide-react'
-// Option 2: Import logo from assets folder
-// import logo from '../assets/logo.png'
+import ThemeToggle from './ThemeToggle'
 
 const NavBar = () => {
   const [isOpen, setIsOpen] = useState(false)
@@ -45,6 +44,7 @@ const NavBar = () => {
                 {item.label}
               </Link>
             ))}
+            <ThemeToggle />
           </div>
 
           {/* Mobile menu button */}

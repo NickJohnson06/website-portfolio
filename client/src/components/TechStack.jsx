@@ -21,10 +21,10 @@ const TechStack = () => {
     return (
         <div className="relative py-24">
             <div className="text-center mb-16">
-                <h2 className="text-3xl md:text-4xl font-bold text-gray-100 mb-4">
+                <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-gray-100 mb-4">
                     Technologies I Use
                 </h2>
-                <p className="text-xl text-gray-400 max-w-2xl mx-auto">
+                <p className="text-xl text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
                     Building modern applications with cutting-edge tools
                 </p>
             </div>
@@ -58,13 +58,13 @@ const TechStack = () => {
                                 onMouseLeave={() => setHoveredIndex(null)}
                             >
                                 <div
-                                    className={`w-20 h-20 rounded-xl bg-dark-800/60 backdrop-blur-sm border border-gray-700 flex flex-col items-center justify-center cursor-pointer transition-all duration-300 ${hoveredIndex === index
+                                    className={`w-20 h-20 rounded-xl bg-white/60 dark:bg-dark-800/60 backdrop-blur-sm border border-gray-200 dark:border-gray-700 flex flex-col items-center justify-center cursor-pointer transition-all duration-300 ${hoveredIndex === index
                                         ? 'border-primary-500 shadow-lg shadow-primary-500/50 scale-110'
                                         : 'hover:border-primary-500/50'
                                         }`}
                                 >
                                     <span className="text-3xl mb-1">{tech.icon}</span>
-                                    <span className="text-xs text-gray-400 font-medium">
+                                    <span className="text-xs text-gray-600 dark:text-gray-400 font-medium">
                                         {tech.name}
                                     </span>
                                 </div>
@@ -73,8 +73,8 @@ const TechStack = () => {
                     })}
 
                     {/* Center circle */}
-                    <div className="w-32 h-32 rounded-full bg-gradient-to-br from-primary-500/20 to-primary-600/10 border border-primary-500/30 flex items-center justify-center">
-                        <span className="text-2xl font-bold text-primary-400">Tech</span>
+                    <div className="w-32 h-32 rounded-full bg-gradient-to-br from-primary-500/10 to-primary-600/5 dark:from-primary-500/20 dark:to-primary-600/10 border border-primary-500/30 flex items-center justify-center">
+                        <span className="text-2xl font-bold text-primary-600 dark:text-primary-400">Tech</span>
                     </div>
                 </div>
             </div>
@@ -89,7 +89,7 @@ const TechStack = () => {
                         whileTap={{ scale: 0.95 }}
                     >
                         <span className="text-3xl mb-2 block">{tech.icon}</span>
-                        <span className="text-xs text-gray-400 font-medium">
+                        <span className="text-xs text-gray-600 dark:text-gray-400 font-medium">
                             {tech.name}
                         </span>
                     </motion.div>

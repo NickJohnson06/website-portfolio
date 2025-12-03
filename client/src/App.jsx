@@ -5,10 +5,12 @@ import Projects from './pages/Projects'
 import Resume from './pages/Resume'
 import Contact from './pages/Contact'
 import CustomCursor from './components/CustomCursor'
+import ScrollToTop from './components/ScrollToTop'
 
 function App() {
   return (
     <>
+      <ScrollToTop />
       <CustomCursor />
       <Layout>
         <Routes>

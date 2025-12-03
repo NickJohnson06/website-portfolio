@@ -13,7 +13,7 @@ const Home = () => {
   return (
     <div>
       {/* Hero Section */}
-      <section className="min-h-[calc(100vh-4rem)] bg-gradient-to-br from-dark-950 via-dark-900 to-dark-950 flex items-center justify-center relative overflow-hidden">
+      <section className="min-h-[calc(100vh-4rem)] bg-gray-50 dark:bg-gradient-to-br dark:from-dark-950 dark:via-dark-900 dark:to-dark-950 flex items-center justify-center relative overflow-hidden transition-colors duration-300">
         {/* Animated background elements */}
         <div className="absolute inset-0 overflow-hidden">
           <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary-500/5 rounded-full blur-3xl animate-float"></div>
@@ -26,10 +26,10 @@ const Home = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
         >
-          <h1 className="text-5xl md:text-7xl font-bold text-gray-100 mb-8 animate-fade-in">
-            Hi, I'm <span className="text-primary-400 drop-shadow-[0_0_15px_rgba(234,179,8,0.5)]">Nick</span>
+          <h1 className="text-5xl md:text-7xl font-bold text-gray-900 dark:text-gray-100 mb-8 animate-fade-in">
+            Hi, I'm <span className="text-primary-600 dark:text-primary-400 drop-shadow-[0_0_15px_rgba(234,179,8,0.5)]">Nick</span>
           </h1>
-          <p className="text-xl md:text-2xl text-gray-400 mb-10 max-w-2xl mx-auto leading-relaxed">
+          <p className="text-xl md:text-2xl text-gray-600 dark:text-gray-400 mb-10 max-w-2xl mx-auto leading-relaxed">
             Full-stack developer passionate about creating innovative web solutions
             and turning ideas into reality through clean, efficient code.
           </p>
@@ -59,7 +59,7 @@ const Home = () => {
                 href={social.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-gray-400 hover:text-primary-400 transition-all duration-300 transform hover:scale-110 hover:drop-shadow-[0_0_12px_rgba(234,179,8,0.7)]"
+                className="text-gray-600 dark:text-gray-400 hover:text-primary-600 dark:hover:text-primary-400 transition-all duration-300 transform hover:scale-110 hover:drop-shadow-[0_0_12px_rgba(234,179,8,0.7)]"
                 aria-label={social.label}
               >
                 <social.icon size={32} />
@@ -70,7 +70,7 @@ const Home = () => {
       </section>
 
       {/* About Section */}
-      <section className="section-padding bg-gradient-to-b from-dark-950 to-dark-900">
+      <section className="section-padding bg-white dark:bg-gradient-to-b dark:from-dark-950 dark:to-dark-900 transition-colors duration-300">
         <div className="max-w-7xl mx-auto">
           <motion.div
             className="text-center mb-16"
@@ -79,10 +79,10 @@ const Home = () => {
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.6 }}
           >
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-100 mb-4">
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-gray-100 mb-4">
               About Me
             </h2>
-            <p className="text-xl text-gray-400 max-w-3xl mx-auto">
+            <p className="text-xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto">
               I'm a passionate full-stack developer with expertise in modern web technologies.
               I love solving complex problems and creating user-friendly applications.
             </p>
@@ -115,12 +115,12 @@ const Home = () => {
                 transition={{ duration: 0.6, delay: index * 0.2 }}
               >
                 <div className="w-16 h-16 bg-primary-500/10 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:shadow-lg group-hover:shadow-primary-500/30 transition-all duration-300">
-                  <svg className="w-8 h-8 text-primary-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <svg className="w-8 h-8 text-primary-600 dark:text-primary-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d={item.icon} />
                   </svg>
                 </div>
-                <h3 className="text-xl font-semibold text-gray-100 mb-2">{item.title}</h3>
-                <p className="text-gray-400">{item.description}</p>
+                <h3 className="text-xl font-semibold text-gray-900 dark:text-gray-100 mb-2">{item.title}</h3>
+                <p className="text-gray-600 dark:text-gray-400">{item.description}</p>
               </motion.div>
             ))}
           </div>

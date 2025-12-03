@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react'
+import { motion } from 'framer-motion'
 import ProjectCard from '../components/ProjectCard'
 
 const Projects = () => {
@@ -15,12 +16,12 @@ const Projects = () => {
     { id: 'other', name: 'Other' },
   ]
 
-  // Sample projects data - replace with API call
+  // Sample projects data
   const sampleProjects = [
     {
       id: 1,
       title: 'E-Commerce Platform',
-      description: 'A full-stack e-commerce platform built with React, Node.js, and MongoDB. Features include user authentication, product management, shopping cart, and payment integration.',
+      description: 'A full-stack e-commerce platform built with React, Node.js, and MongoDB.',
       technologies: ['React', 'Node.js', 'MongoDB', 'Stripe'],
       category: 'fullstack',
       image: 'https://via.placeholder.com/400x250?text=E-Commerce+Platform',
@@ -30,7 +31,7 @@ const Projects = () => {
     {
       id: 2,
       title: 'Task Management App',
-      description: 'A collaborative task management application with real-time updates, drag-and-drop functionality, and team collaboration features.',
+      description: 'A collaborative task management application with real-time updates.',
       technologies: ['React', 'Socket.io', 'Express.js', 'PostgreSQL'],
       category: 'web',
       image: 'https://via.placeholder.com/400x250?text=Task+Management+App',
@@ -40,54 +41,18 @@ const Projects = () => {
     {
       id: 3,
       title: 'Weather Dashboard',
-      description: 'A weather dashboard that displays current weather conditions and forecasts using multiple weather APIs with interactive charts and maps.',
+      description: 'A weather dashboard with current conditions and forecasts.',
       technologies: ['React', 'Chart.js', 'OpenWeather API', 'Leaflet'],
       category: 'web',
       image: 'https://via.placeholder.com/400x250?text=Weather+Dashboard',
       liveUrl: 'https://example.com',
       githubUrl: 'https://github.com/example/weather-app',
     },
-    {
-      id: 4,
-      title: 'Fitness Tracking Mobile App',
-      description: 'A mobile fitness tracking application with workout planning, progress tracking, and social features for sharing achievements.',
-      technologies: ['React Native', 'Firebase', 'Redux', 'Expo'],
-      category: 'mobile',
-      image: 'https://via.placeholder.com/400x250?text=Fitness+Tracking+App',
-      liveUrl: 'https://example.com',
-      githubUrl: 'https://github.com/example/fitness-app',
-    },
-    {
-      id: 5,
-      title: 'Portfolio Website',
-      description: 'A modern, responsive portfolio website built with React and Tailwind CSS, featuring smooth animations and optimal performance.',
-      technologies: ['React', 'Tailwind CSS', 'Framer Motion', 'Vite'],
-      category: 'web',
-      image: 'https://via.placeholder.com/400x250?text=Portfolio+Website',
-      liveUrl: 'https://example.com',
-      githubUrl: 'https://github.com/example/portfolio',
-    },
-    {
-      id: 6,
-      title: 'Data Visualization Tool',
-      description: 'An interactive data visualization tool that allows users to upload CSV files and create custom charts and graphs.',
-      technologies: ['Python', 'Django', 'D3.js', 'Pandas'],
-      category: 'other',
-      image: 'https://via.placeholder.com/400x250?text=Data+Viz+Tool',
-      liveUrl: 'https://example.com',
-      githubUrl: 'https://github.com/example/data-viz',
-    },
   ]
 
   useEffect(() => {
-    // Simulate API call
     const fetchProjects = async () => {
       try {
-        // In a real app, you would fetch from your API
-        // const response = await fetch('/api/projects')
-        // const data = await response.json()
-
-        // For now, use sample data
         setProjects(sampleProjects)
         setFilteredProjects(sampleProjects)
       } catch (error) {
@@ -96,7 +61,6 @@ const Projects = () => {
         setLoading(false)
       }
     }
-
     fetchProjects()
   }, [])
 
@@ -108,58 +72,60 @@ const Projects = () => {
     }
   }, [selectedCategory, projects])
 
-  if (loading) {
-    return (
-      <div className="section-padding bg-gradient-to-b from-dark-950 to-dark-900">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center">
-            <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-primary-400 mx-auto"></div>
-            <p className="mt-4 text-gray-400">Loading projects...</p>
-          </div>
-        </div>
-      </div>
-    )
-  }
-
   return (
-    <div className="section-padding bg-gradient-to-b from-dark-950 to-dark-900">
+    <div className="min-h-screen bg-gradient-to-b from-dark-950 to-dark-900 py-16 px-4 sm:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto">
-        {/* Header */}
-        <div className="text-center mb-16">
-          <h1 className="text-4xl md:text-5xl font-bold text-gray-100 mb-4">
-            My Projects
-          </h1>
-          <p className="text-xl text-gray-400 max-w-3xl mx-auto">
-            Here are some of the projects I've worked on. Each one represents a unique challenge
-            and learning experience in my journey as a developer.
+        <motion.div
+          className="text-center mb-12"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+        >
+          <h1 className="text-4xl md:text-5xl font-bold text-gray-100 mb-4">My Projects</h1>
+          <p className="text-xl text-gray-400 max-w-2xl mx-auto">
+            A collection of my work showcasing various technologies and skills
           </p>
-        </div>
+        </motion.div>
 
-        {/* Filter Buttons */}
-        <div className="flex flex-wrap justify-center gap-4 mb-12">
+        <motion.div
+          className="flex flex-wrap justify-center gap-4 mb-12"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.2 }}
+        >
           {categories.map((category) => (
             <button
               key={category.id}
               onClick={() => setSelectedCategory(category.id)}
               className={`px-6 py-2 rounded-full font-medium transition-all duration-300 ${selectedCategory === category.id
-                ? 'bg-gradient-to-r from-primary-600 to-primary-500 text-dark-900 shadow-lg shadow-primary-500/30'
-                : 'bg-dark-800/50 text-gray-300 hover:bg-dark-700/70 border border-gray-700 hover:border-primary-500/50'
+                  ? 'bg-gradient-to-r from-primary-600 to-primary-500 text-dark-900 shadow-lg shadow-primary-500/30'
+                  : 'bg-dark-800/50 text-gray-300 hover:bg-dark-700/70 border border-gray-700 hover:border-primary-500/50'
                 }`}
             >
               {category.name}
             </button>
           ))}
-        </div>
+        </motion.div>
 
-        {/* Projects Grid */}
-        {filteredProjects.length === 0 ? (
+        {loading ? (
+          <div className="flex justify-center items-center py-20">
+            <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-primary-400"></div>
+          </div>
+        ) : filteredProjects.length === 0 ? (
           <div className="text-center py-12">
             <p className="text-gray-400 text-lg">No projects found in this category.</p>
           </div>
         ) : (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {filteredProjects.map((project) => (
-              <ProjectCard key={project.id} project={project} />
+            {filteredProjects.map((project, index) => (
+              <motion.div
+                key={project.id}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.4 + (index * 0.1) }}
+              >
+                <ProjectCard project={project} />
+              </motion.div>
             ))}
           </div>
         )}

@@ -30,7 +30,7 @@ const Home = () => {
             Hi, I'm <span className="text-primary-600 dark:text-primary-400 drop-shadow-[0_0_15px_rgba(234,179,8,0.5)]">Nick</span>
           </h1>
           <p className="text-xl md:text-2xl text-gray-600 dark:text-gray-400 mb-10 max-w-2xl mx-auto leading-relaxed">
-            Full-stack developer passionate about creating innovative web solutions
+            Aspiring full-stack developer who's passionate about creating innovative web solutions
             and turning ideas into reality through clean, efficient code.
           </p>
 
@@ -83,8 +83,7 @@ const Home = () => {
               About Me
             </h2>
             <p className="text-xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto">
-              I'm a passionate full-stack developer with expertise in modern web technologies.
-              I love solving complex problems and creating user-friendly applications.
+              I'm an upcoming Computer Science graduate with hands-on experience building full-stack, cloud, and mobile applications. Skilled in developing scalable backend services, designing clean UI/UX in Flutter, and working with modern frameworks such as Node.js, React, and AWS serverless. Strong foundation in software engineering principles, debugging, API development, and database design, with a proven ability to deliver reliable, user-focused solutions through academic, personal, and portfolio projects.
             </p>
           </motion.div>
 

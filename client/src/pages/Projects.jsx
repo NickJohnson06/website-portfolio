@@ -10,10 +10,9 @@ const Projects = () => {
 
   const categories = [
     { id: 'all', name: 'All Projects' },
-    { id: 'web', name: 'Web Development' },
-    { id: 'mobile', name: 'Mobile Apps' },
     { id: 'fullstack', name: 'Full Stack' },
-    { id: 'other', name: 'Other' },
+    { id: 'mobile', name: 'Mobile App' },
+    { id: 'aws', name: 'AWS' },
   ]
 
   // Sample projects data
@@ -23,8 +22,8 @@ const Projects = () => {
       title: 'CloudSentry',
       description: 'An AWS serverless application that tracks expenses and provides insights into your AWS usage.',
       technologies: ['React', 'Node.js', 'MongoDB', 'Stripe'],
-      category: 'fullstack',
-      image: 'https://via.placeholder.com/400x250?text=E-Commerce+Platform',
+      category: 'aws',
+      image: 'https://via.placeholder.com/400x250?text=CloudSentry',
       liveUrl: 'https://cloudsentry-nickjohnson06.vercel.app/',
       githubUrl: 'https://github.com/NickJohnson06/cloudsentry',
     },
@@ -36,7 +35,7 @@ const Projects = () => {
       category: 'mobile',
       image: 'https://via.placeholder.com/400x250?text=Social+Fitness+App',
       liveUrl: 'https://social-fitness-nickjohnson06.vercel.app/',
-      githubUrl: 'https://github.com/NickJohnson06/social-fitness',
+      githubUrl: 'https://github.com/rishitaido/MAD_Project2',
     },
     {
       id: 3,

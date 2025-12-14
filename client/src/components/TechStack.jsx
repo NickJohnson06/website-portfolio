@@ -1,21 +1,37 @@
 import { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
+import {
+    FaJava,
+    FaPython,
+    FaJs,
+    FaDatabase,
+    FaNodeJs,
+    FaReact,
+    FaGitAlt,
+    FaLinux
+} from 'react-icons/fa'
+import {
+    SiFlutter,
+    SiDart,
+    SiExpress,
+    SiPostgresql
+} from 'react-icons/si'
 
 const TechStack = () => {
     const [hoveredIndex, setHoveredIndex] = useState(null)
 
     const technologies = [
-        { name: 'Java', icon: '☕', color: '#007396' },
-        { name: 'Python', icon: '🐍', color: '#3776AB' },
-        { name: 'JavaScript', icon: '⚡', color: '#F7DF1E' },
-        { name: 'SQL', icon: '🗄️', color: '#4479A1' },
-        { name: 'Flutter/Dart', icon: '🎯', color: '#02569B' },
-        { name: 'Node.js', icon: '🟢', color: '#339933' },
-        { name: 'React', icon: '⚛️', color: '#61DAFB' },
-        { name: 'Express', icon: '🚂', color: '#000000' },
-        { name: 'Git', icon: '📦', color: '#F05032' },
-        { name: 'REST APIs', icon: '🔌', color: '#009688' },
-        { name: 'Linux', icon: '🐧', color: '#FCC624' },
+        { name: 'Java', icon: <FaJava />, color: '#007396' },
+        { name: 'Python', icon: <FaPython />, color: '#3776AB' },
+        { name: 'JavaScript', icon: <FaJs />, color: '#F7DF1E' },
+        { name: 'SQL', icon: <FaDatabase />, color: '#4479A1' },
+        { name: 'Flutter', icon: <SiFlutter />, color: '#02569B' },
+        { name: 'Dart', icon: <SiDart />, color: '#0175C2' },
+        { name: 'Node.js', icon: <FaNodeJs />, color: '#339933' },
+        { name: 'React', icon: <FaReact />, color: '#61DAFB' },
+        { name: 'Express', icon: <SiExpress />, color: '#000000' },
+        { name: 'Git', icon: <FaGitAlt />, color: '#F05032' },
+        { name: 'Linux', icon: <FaLinux />, color: '#FCC624' },
     ]
 
     return (

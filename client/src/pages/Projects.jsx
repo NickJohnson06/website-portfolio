@@ -1,12 +1,14 @@
 import { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
 import ProjectCard from '../components/ProjectCard'
+import VideoModal from '../components/VideoModal'
 
 const Projects = () => {
   const [projects, setProjects] = useState([])
   const [filteredProjects, setFilteredProjects] = useState([])
   const [selectedCategory, setSelectedCategory] = useState('all')
   const [loading, setLoading] = useState(true)
+  const [selectedVideo, setSelectedVideo] = useState(null)
 
   const categories = [
     { id: 'all', name: 'All Projects' },
@@ -26,6 +28,7 @@ const Projects = () => {
       image: 'https://via.placeholder.com/400x250?text=CloudSentry',
       liveUrl: 'https://cloudsentry-nickjohnson06.vercel.app/',
       githubUrl: 'https://github.com/NickJohnson06/cloudsentry',
+      demoUrl: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ', // Placeholder video
     },
     {
       id: 2,
@@ -45,6 +48,7 @@ const Projects = () => {
       category: 'fullstack',
       image: 'assets/RoamLog-Thumbnail.png',
       liveUrl: 'https://travel-journal-nickjohnson06.vercel.app/',
+      demoUrl: 'https://www.youtube.com/watch?v=Tq8FWYFWnmI',
       githubUrl: 'https://github.com/NickJohnson06/travel-journal',
     },
     {
@@ -90,6 +94,17 @@ const Projects = () => {
       setFilteredProjects(projects.filter(project => project.category === selectedCategory))
     }
   }, [selectedCategory, projects])
+
+  const handleOpenDemo = (project) => {
+    setSelectedVideo({
+      url: project.demoUrl,
+      title: project.title
+    })
+  }
+
+  const handleCloseDemo = () => {
+    setSelectedVideo(null)
+  }
 
   return (
     <div className="min-h-screen bg-gray-50 dark:bg-gradient-to-b dark:from-dark-950 dark:to-dark-900 py-16 px-4 sm:px-6 lg:px-8 transition-colors duration-300">
@@ -142,13 +157,21 @@ const Projects = () => {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.4 + (index * 0.1) }}
+                className="h-full"
               >
-                <ProjectCard project={project} />
+                <ProjectCard project={project} onOpenDemo={handleOpenDemo} />
               </motion.div>
             ))}
           </div>
         )}
       </div>
+
+      <VideoModal
+        isOpen={!!selectedVideo}
+        onClose={handleCloseDemo}
+        videoUrl={selectedVideo?.url}
+        title={selectedVideo?.title}
+      />
     </div>
   )
 }

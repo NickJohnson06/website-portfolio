@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom'
 import { ArrowRight, Download, Github, Linkedin, Mail } from 'lucide-react'
 import { motion } from 'framer-motion'
 import TechStack from '../components/TechStack'
+import resumePdf from '../assets/Nick_Johnson_Resume.pdf'
 
 const Home = () => {
   const socialLinks = [
@@ -43,8 +44,8 @@ const Home = () => {
               <ArrowRight size={20} />
             </Link>
             <a
-              href="/Nick_Johnson_Resume_copy.pdf"
-              download
+              href={resumePdf}
+              download="Nick_Johnson_Resume.pdf"
               className="btn-secondary flex items-center justify-center space-x-2 text-lg px-8 py-3"
             >
               <Download size={20} />
@@ -83,7 +84,7 @@ const Home = () => {
               About Me
             </h2>
             <p className="text-xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto">
-              I'm an upcoming Computer Science graduate with hands-on experience building full-stack, cloud, and mobile applications. Skilled in developing scalable backend services, designing clean UI/UX in Flutter, and working with modern frameworks such as Node.js, React, and AWS serverless. Strong foundation in software engineering principles, debugging, API development, and database design, with a proven ability to deliver reliable, user-focused solutions through academic, personal, and portfolio projects.
+              I'm a recent Computer Science graduate with hands-on experience building full-stack, cloud, and mobile applications. Skilled in developing scalable backend services, designing clean UI/UX in Flutter, and working with modern frameworks such as Node.js, React, and AWS serverless. Strong foundation in software engineering principles, debugging, API development, and database design, with a proven ability to deliver reliable, user-focused solutions through academic, personal, and portfolio projects.
             </p>
           </motion.div>
 

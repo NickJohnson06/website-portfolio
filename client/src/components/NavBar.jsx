@@ -23,7 +23,7 @@ const NavBar = () => {
           <div className="flex items-center">
             <Link to="/" className="flex items-center">
               <img
-                src="/assets/website-logo.png"
+                src="/website-portfolio/images/website-logo.png"
                 alt="Website Logo"
                 className="h-14 w-auto drop-shadow-[0_0_8px_rgba(234,179,8,0.5)] hover:drop-shadow-[0_0_12px_rgba(234,179,8,0.8)] transition-all duration-300"
               />

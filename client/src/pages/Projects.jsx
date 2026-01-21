@@ -46,7 +46,7 @@ const Projects = () => {
       description: 'A travel journal web app that lets you create and manage your travel plans with AI-powered itinerary recommendations.',
       technologies: ['React', 'Express.js', 'Node.js', 'MongoDB', 'Tailwind CSS', 'Meta AI'],
       category: 'fullstack',
-      image: 'assets/RoamLog-Thumbnail.png',
+      image: 'images/RoamLog-Thumbnail.png',
       liveUrl: 'https://travel-journal-nickjohnson06.vercel.app/',
       demoUrl: 'https://www.youtube.com/watch?v=Tq8FWYFWnmI',
       githubUrl: 'https://github.com/NickJohnson06/travel-journal',

@@ -1,30 +1,49 @@
-# website-portfolio
-My website portfolio created to introduce myself and showcase my projects and skills.
+# Nick Johnson - Portfolio
 
-This site is built with **MongoDB, Express.js, React, and Node.js** (plus TailwindCSS).  
-Sections: **Home · Projects · Resume/Skills · Contact**
+A modern, responsive portfolio website built to showcase my projects, skills, and experience as a Full-Stack Developer.
 
----
+**Live Demo:** [https://NickJohnson06.github.io/website-portfolio/](https://NickJohnson06.github.io/website-portfolio/)
+
+## Features
+
+-   🎨 **Modern Design**: Clean aesthetics with smooth animations using Framer Motion.
+-   🌓 **Dark/Light Mode**: Fully supported theme switching.
+-   📱 **Responsive**: Optimized for all devices, from mobile to desktop.
+-   🚀 **Fast**: Built with Vite for rapid performance.
+-   📄 **Resume**: Interactive view and download of my resume.
 
 ## Tech Stack
-- **Frontend:** React, React Router, Vite, TailwindCSS  
-- **Backend:** Node.js, Express  
-- **Database:** MongoDB 
-- **Email:** Nodemailer
 
----
+-   **Frontend**: React, Tailwind CSS, Framer Motion
+-   **Build Tool**: Vite
+-   **Deployment**: GitHub Pages
 
-## Quick Start
+## Quick Start (Development)
+
+To run the project locally:
+
+1.  Navigate to the client folder:
+    ```bash
+    cd client
+    ```
+
+2.  Install dependencies:
+    ```bash
+    npm install
+    ```
+
+3.  Start the development server:
+    ```bash
+    npm run dev
+    ```
+
+4.  Open `http://localhost:5173/website-portfolio/` in your browser.
+
+## Deployment
+
+To deploy changes to GitHub Pages:
 
 ```bash
-# 1. Install dependencies
-npm install
-npm --prefix server install
-npm --prefix client install
-
-# 2. Set env vars
-cd /server/.env   # then fill values
-
-# 3. Run both dev servers
-npm run dev
-
+cd client
+npm run deploy
+```

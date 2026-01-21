@@ -1,5 +1,6 @@
 import { Download } from 'lucide-react'
 import { motion } from 'framer-motion'
+import resumePdf from '../assets/Nick_Johnson_Resume.pdf'
 
 const experience = [
   {
@@ -17,10 +18,9 @@ const experience = [
     company: 'Staples',
     period: 'NOV 2022 - MAR 2023',
     description: [
-      'Developed and maintained e-commerce platforms',
-      'Integrated third-party APIs and payment gateways',
-      'Optimized application performance and user experience',
-      'Worked with agile methodologies and version control systems',
+      'Helped customers navigate services, promotions, and product options while maintaining a positive user experience.',
+      'Organized store layouts following detailed planograms and ensured product availability through proper stock handling.',
+      'Enhanced communication and customer support abilities while resolving in-store issues.',
     ],
   },
   {
@@ -28,10 +28,9 @@ const experience = [
     company: "Del Sur Taqueria & Cantina",
     period: 'MAY 2020 - JUNE 2022',
     description: [
-      'Built responsive user interfaces using React and modern CSS',
-      'Collaborated with designers to implement pixel-perfect designs',
-      'Participated in code reviews and team meetings',
-      'Contributed to open-source projects and documentation',
+      'Created prep schedules, organized workflows, and ensured consistency in quality and safety standards.',
+      'Trained and onboarded new employees, improving team efficiency and maintaining clear documentation of procedures',
+      'Managed inventory levels and verified accuracy during deliveries and stocking.',
     ],
   },
 ]
@@ -62,6 +61,11 @@ const skills = {
 
 const certifications = [
   {
+    name: 'CompTIA A+ (In-Progress)',
+    issuer: 'CompTIA',
+    year: '2026',
+  },
+  {
     name: 'AWS Certified Cloud Practitioner (In-Progress)',
     issuer: 'Amazon Web Services',
     year: '2026',
@@ -88,7 +92,7 @@ const Resume = () => {
           <p className="text-xl text-gray-700 dark:text-gray-300 mb-2">Full-Stack Developer</p>
           <p className="text-md text-gray-600 dark:text-gray-400">johnsonnick9006@gmail.com (404)-285-5444</p>
           <a
-            href="/path/to/your/resume.pdf"
+            href={resumePdf}
             download="Nick_Johnson_Resume.pdf"
             className="mt-6 inline-block bg-primary-600 hover:bg-primary-700 text-white font-bold py-3 px-6 rounded-lg transition duration-300 flex items-center justify-center gap-2 w-fit mx-auto"
           >

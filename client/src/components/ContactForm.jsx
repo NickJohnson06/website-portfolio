@@ -24,6 +24,19 @@ const ContactForm = () => {
     setStatus({ type: '', message: '' })
 
     try {
+      const isStatic = true; // Flag for static deployment
+
+      if (isStatic) {
+        window.location.href = `mailto:nickjohnson06@gmail.com?subject=${encodeURIComponent(formData.subject)}&body=${encodeURIComponent(`Name: ${formData.name}\nEmail: ${formData.email}\n\n${formData.message}`)}`;
+        setStatus({
+          type: 'success',
+          message: 'Redirecting to your email client...'
+        });
+        setFormData({ name: '', email: '', subject: '', message: '' });
+        setIsSubmitting(false);
+        return;
+      }
+
       const response = await fetch('/api/contact', {
         method: 'POST',
         headers: {

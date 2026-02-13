@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom'
 import { ArrowRight, Download, Github, Linkedin, Mail } from 'lucide-react'
 import { motion } from 'framer-motion'
 import TechStack from '../components/TechStack'
-import resumePdf from '../assets/Nick_Johnson_Resume.pdf'
+import resumePdf from '../assets/NICK_JOHNSON_-_.pdf'
 
 const Home = () => {
   const socialLinks = [
@@ -31,7 +31,7 @@ const Home = () => {
             Hi, I'm <span className="text-primary-600 dark:text-primary-400 drop-shadow-[0_0_15px_rgba(234,179,8,0.5)]">Nick</span>
           </h1>
           <p className="text-xl md:text-2xl text-gray-600 dark:text-gray-400 mb-10 max-w-2xl mx-auto leading-relaxed">
-            Aspiring full-stack developer who's passionate about creating innovative web solutions
+            Full-stack developer who's passionate about creating innovative web solutions
             and turning ideas into reality through clean, efficient code.
           </p>
 
@@ -45,7 +45,7 @@ const Home = () => {
             </Link>
             <a
               href={resumePdf}
-              download="Nick_Johnson_Resume.pdf"
+              download="NICK_JOHNSON_-_.pdf"
               className="btn-secondary flex items-center justify-center space-x-2 text-lg px-8 py-3"
             >
               <Download size={20} />

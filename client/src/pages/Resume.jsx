@@ -1,6 +1,6 @@
 import { Download } from 'lucide-react'
 import { motion } from 'framer-motion'
-import resumePdf from '../assets/Nick_Johnson_Resume.pdf'
+import resumePdf from '../assets/NICK_JOHNSON_-_.pdf'
 
 const experience = [
   {
@@ -51,30 +51,32 @@ const education = [
 ]
 
 const skills = {
-  'Frontend': ['React', 'JavaScript', 'HTML', 'CSS', 'Tailwind CSS'],
+  'Frontend': ['React', 'JavaScript', 'HTML', 'CSS', 'Tailwind CSS', 'Flutter/Dart'],
   'Backend': ['Python', 'Java', 'Node.js', 'Express.js', 'REST APIs'],
-  'Database': ['MongoDB', 'MySQL', 'DBeaver'],
-  'DevOps': ['Git', 'AWS', 'Linux'],
-  'Tools': ['VS Code', "VMware", "R"],
-  'Soft Skills': ['Customer Service', 'Teamwork', 'Problem Solving', 'Communication', 'Adaptability', 'Time Management'],
+  'Database': ['MongoDB', 'MySQL', 'DBeaver', 'PostgreSQL', 'DynamoDB'],
+  'DevOps': ['Git', 'AWS', 'Terraform', 'Linux', 'Bash'],
+  'Tools': ['VS Code', 'Github', 'VMware', 'Android Studio', 'R'],
+  'Soft Skills': ['Customer Service', 'Communication', 'Problem Solving', 'Analytical Thinking', 'Adaptability', 'Time Management'],
 }
 
 const certifications = [
-  {
-    name: 'CompTIA A+ (In-Progress)',
-    issuer: 'CompTIA',
-    year: '2026',
-  },
   {
     name: 'AWS Certified Cloud Practitioner (In-Progress)',
     issuer: 'Amazon Web Services',
     year: '2026',
   },
   {
-    name: 'AWS Certified Solutions Architect (Upcoming)',
-    issuer: 'Amazon Web Services',
+    name: 'Cisco Certified Network Associate (In-Progress)',
+    issuer: 'Cisco',
     year: '2026',
   },
+  {
+    name: 'CompTIA Security+ (Upcoming)',
+    issuer: 'CompTIA',
+    year: '2026',
+  },
+
+
 ]
 
 const Resume = () => {
@@ -93,7 +95,7 @@ const Resume = () => {
           <p className="text-md text-gray-600 dark:text-gray-400">johnsonnick9006@gmail.com (404)-285-5444</p>
           <a
             href={resumePdf}
-            download="Nick_Johnson_Resume.pdf"
+            download="NICK_JOHNSON_-_.pdf"
             className="mt-6 inline-block bg-primary-600 hover:bg-primary-700 text-white font-bold py-3 px-6 rounded-lg transition duration-300 flex items-center justify-center gap-2 w-fit mx-auto"
           >
             <Download size={20} />
@@ -160,21 +162,30 @@ const Resume = () => {
           transition={{ duration: 0.6, delay: 0.4 }}
         >
           <h2 className="text-3xl font-bold text-gray-900 dark:text-gray-100 mb-8">Skills</h2>
-          <div className="flex flex-wrap gap-3">
-            {Object.entries(skills).map(([category, skillList]) => (
-              <div key={category} className="mb-4 w-full">
-                <h3 className="text-lg font-semibold text-gray-900 dark:text-gray-100 mb-2">{category}</h3>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {Object.entries(skills).map(([category, skillList], index) => (
+              <motion.div
+                key={category}
+                className="bg-white/5 dark:bg-white/5 backdrop-blur-md border border-gray-200/20 dark:border-white/10 rounded-xl p-6 hover:border-primary-500/50 transition-colors duration-300"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+              >
+                <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-4 border-b border-gray-200/10 dark:border-white/10 pb-2">
+                  {category}
+                </h3>
                 <div className="flex flex-wrap gap-2">
                   {skillList.map((skill) => (
                     <span
                       key={skill}
-                      className="px-3 py-1 bg-primary-500/20 text-primary-600 dark:text-primary-400 text-sm rounded-full border border-primary-500/30"
+                      className="px-3 py-1 bg-primary-500/10 text-primary-600 dark:text-primary-400 text-sm rounded-full border border-primary-500/20"
                     >
                       {skill}
                     </span>
                   ))}
                 </div>
-              </div>
+              </motion.div>
             ))}
           </div>
         </motion.section>

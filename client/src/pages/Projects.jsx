@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
 import ProjectCard from '../components/ProjectCard'
 import VideoModal from '../components/VideoModal'
+import { projects as projectData } from '../data/projects'
 
 const Projects = () => {
   const [projects, setProjects] = useState([])
@@ -14,70 +15,15 @@ const Projects = () => {
     { id: 'all', name: 'All Projects' },
     { id: 'fullstack', name: 'Full Stack' },
     { id: 'mobile', name: 'Mobile App' },
-    { id: 'aws', name: 'AWS' },
-  ]
-
-  // Sample projects data
-  const sampleProjects = [
-    {
-      id: 1,
-      title: 'CloudSentry',
-      description: 'An AWS serverless application that tracks expenses and provides insights into your AWS usage.',
-      technologies: ['React', 'Node.js', 'MongoDB', 'Stripe'],
-      category: 'aws',
-      image: 'https://via.placeholder.com/400x250?text=CloudSentry',
-      liveUrl: 'https://cloudsentry-nickjohnson06.vercel.app/',
-      githubUrl: 'https://github.com/NickJohnson06/cloudsentry',
-      demoUrl: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ', // Placeholder video
-    },
-    {
-      id: 2,
-      title: 'Social Fitness App',
-      description: 'A social fitness app to connect with friends and share your fitness journey.',
-      technologies: ['Flutter', 'Dart', 'Firebase'],
-      category: 'mobile',
-      image: 'https://via.placeholder.com/400x250?text=Social+Fitness+App',
-      liveUrl: 'https://social-fitness-nickjohnson06.vercel.app/',
-      githubUrl: 'https://github.com/rishitaido/MAD_Project2',
-    },
-    {
-      id: 3,
-      title: 'RoamLog',
-      description: 'A travel journal web app that lets you create and manage your travel plans with AI-powered itinerary recommendations.',
-      technologies: ['React', 'Express.js', 'Node.js', 'MongoDB', 'Tailwind CSS', 'Meta AI'],
-      category: 'fullstack',
-      image: 'images/RoamLog-Thumbnail.png',
-      liveUrl: 'https://travel-journal-nickjohnson06.vercel.app/',
-      demoUrl: 'https://www.youtube.com/watch?v=Tq8FWYFWnmI',
-      githubUrl: 'https://github.com/NickJohnson06/travel-journal',
-    },
-    {
-      id: 4,
-      title: 'Pokedex App',
-      description: 'A personal pokedex app that lets you catch and manage your favorite pokemon.',
-      technologies: ['Flutter', 'Dart', 'Firebase'],
-      category: 'mobile',
-      image: 'https://via.placeholder.com/400x250?text=Pokedex+App',
-      liveUrl: 'https://pokedex-nickjohnson06.vercel.app/',
-      githubUrl: 'https://github.com/NickJohnson06/pokedex',
-    },
-    {
-      id: 5,
-      title: 'Vehicle Maintenance Tracker App',
-      description: 'A maintenance tracker app to help keep your vehicle maintenance records in one place and up to date.',
-      technologies: ['Flutter', 'Dart', 'SQLite'],
-      category: 'mobile',
-      image: 'https://via.placeholder.com/400x250?text=Vehicle+Maintenance+Tracker+App',
-      liveUrl: 'https://vehicle-maintenance-tracker-nickjohnson06.vercel.app/',
-      githubUrl: 'https://github.com/rishitaido/VehicleTrackerMAD',
-    },
+    { id: 'cloud', name: 'Cloud' },
+    { id: 'other', name: 'Other' },
   ]
 
   useEffect(() => {
     const fetchProjects = async () => {
       try {
-        setProjects(sampleProjects)
-        setFilteredProjects(sampleProjects)
+        setProjects(projectData)
+        setFilteredProjects(projectData)
       } catch (error) {
         console.error('Error fetching projects:', error)
       } finally {

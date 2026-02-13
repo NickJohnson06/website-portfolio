@@ -1,18 +1,22 @@
-import { ExternalLink, Github, PlayCircle } from 'lucide-react'
+import { ExternalLink, Github, PlayCircle, Info } from 'lucide-react'
+import { Link } from 'react-router-dom'
 
 const ProjectCard = ({ project, onOpenDemo }) => {
-  const { title, description, technologies, image, liveUrl, githubUrl, demoUrl } = project
+  const { id, title, description, technologies, liveUrl, githubUrl, demoUrl } = project
 
   return (
     <div className="card group h-full flex flex-col">
-      <div className="relative overflow-hidden rounded-lg mb-4 flex-shrink-0">
-        <img
-          src={image || 'https://via.placeholder.com/400x250?text=Project+Image'}
-          alt={title}
-          className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
-        />
-        <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-20 transition-all duration-300" />
-      </div>
+      <a
+        href={githubUrl}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="relative overflow-hidden rounded-lg mb-4 flex-shrink-0 h-48 bg-dark-900 dark:bg-dark-900 flex items-center justify-center group-hover:scale-105 transition-transform duration-300 border-4 border-primary-500 cursor-pointer block"
+      >
+        <div className="bg-white rounded-full p-4 shadow-lg">
+          <Github size={40} className="text-primary-600 dark:text-primary-600" />
+        </div>
+        <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-10 transition-all duration-300" />
+      </a>
 
       <div className="flex-grow flex flex-col">
         <h3 className="text-xl font-semibold text-gray-900 dark:text-gray-100 mb-2">{title}</h3>
@@ -50,21 +54,18 @@ const ProjectCard = ({ project, onOpenDemo }) => {
             </a>
           )}
 
-          {githubUrl && (
-            <a
-              href={githubUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="btn-secondary flex items-center justify-center space-x-2 flex-1"
-            >
-              <Github size={16} />
-              <span>Code</span>
-            </a>
-          )}
+          <Link
+            to={`/project-details#project-${id}`}
+            className="btn-secondary flex items-center justify-center space-x-2 flex-1"
+          >
+            <Info size={16} />
+            <span>Details</span>
+          </Link>
         </div>
       </div>
     </div>
   )
 }
+
 
 export default ProjectCard

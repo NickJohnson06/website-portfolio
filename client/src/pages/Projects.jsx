@@ -16,7 +16,6 @@ const Projects = () => {
     { id: 'fullstack', name: 'Full Stack' },
     { id: 'mobile', name: 'Mobile App' },
     { id: 'cloud', name: 'Cloud' },
-    { id: 'other', name: 'Other' },
   ]
 
   useEffect(() => {

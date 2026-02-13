@@ -91,4 +91,40 @@ export const projects = [
             'Built a clean, utilitarian interface focused on ease of data entry'
         ]
     },
+    {
+        id: 6,
+        title: 'AWS Cost Optimizer',
+        description: 'Cloud-native cost analytics and optimization dashboard built on AWS.',
+        technologies: ['AWS', 'Terraform', 'Node.js', 'React', 'SQL'],
+        category: 'cloud',
+        image: 'https://via.placeholder.com/400x250?text=AWS+Cost+Optimizer',
+        // liveUrl: null, // In progress
+        githubUrl: 'https://github.com/NickJohnson06/aws-cost-optimizer',
+        date: 'In Progress',
+        details: [
+            'Architected a high-level event-driven system: EventBridge → Cost ingestion Lambda → Postgres → API Lambda → React → CloudFront',
+            'Implemented Infrastructure as Code (IaC) using Terraform for reproducible deployments',
+            'Developed a cost ingestion pipeline and dashboard MVP for real-time analytics',
+            'Designed the backend using Node.js and Postgres for scalable data processing',
+            'Currently building the recommendations engine and SQL-based anomaly detection'
+        ]
+    },
+    {
+        id: 7,
+        title: 'CloudShield Lab',
+        description: 'A hands-on cloud engineering project demonstrating real-world AWS networking, security, and Infrastructure as Code (IaC) practices.',
+        technologies: ['AWS', 'Terraform', 'EC2', 'ALB', 'Linux'],
+        category: 'cloud',
+        image: 'https://via.placeholder.com/400x250?text=CloudShield+Lab',
+        // liveUrl: null, 
+        githubUrl: 'https://github.com/NickJohnson06/cloudshield-lab',
+        date: 'In Progress',
+        details: [
+            'Designed and deployed a secure, multi-AZ AWS VPC with public/private subnet segmentation',
+            'Provisioned an EC2 web server in a private subnet, reachable only via an internal Application Load Balancer',
+            'Implemented strict security groups and network ACLs for least-privilege access control',
+            'Configured a NAT Gateway to allow secure outbound internet access for private resources',
+            'Automated the entire infrastructure provisioning using Terraform for consistent, repeatable deployments'
+        ]
+    },
 ]

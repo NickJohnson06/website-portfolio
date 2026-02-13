@@ -1,8 +1,40 @@
+import { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
 import { projects } from '../data/projects'
-import { Github, ExternalLink } from 'lucide-react'
+import { Github, ExternalLink, PlayCircle } from 'lucide-react'
+import VideoModal from '../components/VideoModal'
 
 const ProjectDetails = () => {
+    const [filteredProjects, setFilteredProjects] = useState(projects)
+    const [selectedCategory, setSelectedCategory] = useState('all')
+    const [selectedVideo, setSelectedVideo] = useState(null)
+
+    const handleOpenDemo = (project) => {
+        setSelectedVideo({
+            url: project.demoUrl,
+            title: project.title
+        })
+    }
+
+    const handleCloseDemo = () => {
+        setSelectedVideo(null)
+    }
+
+    const categories = [
+        { id: 'all', name: 'All Projects' },
+        { id: 'fullstack', name: 'Full Stack' },
+        { id: 'mobile', name: 'Mobile App' },
+        { id: 'cloud', name: 'Cloud' },
+    ]
+
+    useEffect(() => {
+        if (selectedCategory === 'all') {
+            setFilteredProjects(projects)
+        } else {
+            setFilteredProjects(projects.filter(project => project.category === selectedCategory))
+        }
+    }, [selectedCategory])
+
     return (
         <div className="min-h-screen bg-gray-50 dark:bg-gradient-to-b dark:from-dark-950 dark:to-dark-900 py-20 px-4 sm:px-6 lg:px-8 transition-colors duration-300">
             <motion.div
@@ -11,12 +43,27 @@ const ProjectDetails = () => {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6 }}
             >
-                <h1 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-gray-100 mb-12 text-center">
+                <h1 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-gray-100 mb-8 text-center">
                     Project Details
                 </h1>
 
+                <div className="flex flex-wrap justify-center gap-4 mb-12">
+                    {categories.map((category) => (
+                        <button
+                            key={category.id}
+                            onClick={() => setSelectedCategory(category.id)}
+                            className={`px-6 py-2 rounded-full font-medium transition-all duration-300 ${selectedCategory === category.id
+                                ? 'bg-gradient-to-r from-primary-600 to-primary-500 text-white dark:text-dark-900 shadow-lg shadow-primary-500/30'
+                                : 'bg-white/50 dark:bg-dark-800/50 text-gray-700 dark:text-gray-300 hover:bg-gray-100/70 dark:hover:bg-dark-700/70 border border-gray-200 dark:border-gray-700 hover:border-primary-500/50'
+                                }`}
+                        >
+                            {category.name}
+                        </button>
+                    ))}
+                </div>
+
                 <div className="space-y-8">
-                    {projects.map((project, index) => (
+                    {filteredProjects.map((project, index) => (
                         <motion.div
                             id={`project-${project.id}`}
                             key={project.id}
@@ -67,22 +114,51 @@ const ProjectDetails = () => {
                                         View Code
                                     </a>
                                 )}
-                                {project.liveUrl && (
+
+                                {project.demoUrl ? (
+                                    <button
+                                        onClick={() => handleOpenDemo(project)}
+                                        className="flex items-center text-gray-600 dark:text-gray-400 hover:text-primary-600 dark:hover:text-primary-400 transition-colors"
+                                    >
+                                        <PlayCircle size={20} className="mr-2" />
+                                        Watch Demo
+                                    </button>
+                                ) : project.liveUrl ? (
                                     <a
                                         href={project.liveUrl}
                                         target="_blank"
                                         rel="noopener noreferrer"
                                         className="flex items-center text-gray-600 dark:text-gray-400 hover:text-primary-600 dark:hover:text-primary-400 transition-colors"
                                     >
-                                        <ExternalLink size={20} className="mr-2" />
-                                        Live Demo
+                                        <PlayCircle size={20} className="mr-2" />
+                                        Watch Demo
                                     </a>
+                                ) : (
+                                    <button
+                                        disabled
+                                        className="flex items-center text-gray-400 dark:text-gray-600 cursor-not-allowed"
+                                    >
+                                        <PlayCircle size={20} className="mr-2" />
+                                        Watch Demo
+                                    </button>
                                 )}
                             </div>
                         </motion.div>
                     ))}
+                    {filteredProjects.length === 0 && (
+                        <div className="text-center py-12">
+                            <p className="text-gray-600 dark:text-gray-400 text-lg">No projects found in this category.</p>
+                        </div>
+                    )}
                 </div>
             </motion.div>
+
+            <VideoModal
+                isOpen={!!selectedVideo}
+                onClose={handleCloseDemo}
+                videoUrl={selectedVideo?.url}
+                title={selectedVideo?.title}
+            />
         </div>
     )
 }

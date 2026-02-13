@@ -42,16 +42,24 @@ const ProjectCard = ({ project, onOpenDemo }) => {
               <PlayCircle size={16} />
               <span>Watch Demo</span>
             </button>
-          ) : liveUrl && (
+          ) : liveUrl ? (
             <a
               href={liveUrl}
               target="_blank"
               rel="noopener noreferrer"
               className="btn-primary flex items-center justify-center space-x-2 flex-1"
             >
-              <ExternalLink size={16} />
-              <span>Live Demo</span>
+              <PlayCircle size={16} />
+              <span>Watch Demo</span>
             </a>
+          ) : (
+            <button
+              disabled
+              className="btn-primary flex items-center justify-center space-x-2 flex-1 opacity-50 cursor-not-allowed"
+            >
+              <PlayCircle size={16} />
+              <span>Watch Demo</span>
+            </button>
           )}
 
           <Link

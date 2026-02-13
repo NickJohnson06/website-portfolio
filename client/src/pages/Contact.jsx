@@ -23,13 +23,24 @@ const Contact = () => {
       value: 'Roswell, GA',
       href: '#',
     },
-
-  ]
-
-  const socialLinks = [
-    { icon: Github, href: 'https://github.com/NickJohnson06', label: 'GitHub' },
-    { icon: Linkedin, href: 'https://www.linkedin.com/in/nick-johnson9006/', label: 'LinkedIn' },
-    { icon: Twitter, href: 'https://x.com/nick_johnson06', label: 'Twitter' },
+    {
+      icon: Github,
+      title: 'GitHub',
+      value: 'View Profile',
+      href: 'https://github.com/NickJohnson06',
+    },
+    {
+      icon: Linkedin,
+      title: 'LinkedIn',
+      value: 'Connect on LinkedIn',
+      href: 'https://www.linkedin.com/in/nick-johnson9006/',
+    },
+    {
+      icon: Twitter,
+      title: 'Twitter',
+      value: 'Follow heavily',
+      href: 'https://x.com/nick_johnson06',
+    },
   ]
 
   return (
@@ -52,7 +63,7 @@ const Contact = () => {
         </motion.div>
 
         {/* Contact Info Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
           {contactInfo.map((info, index) => (
             <motion.a
               key={info.title}
@@ -61,6 +72,8 @@ const Contact = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.2 + (index * 0.1) }}
+              target={info.href.startsWith('http') ? '_blank' : undefined}
+              rel={info.href.startsWith('http') ? 'noopener noreferrer' : undefined}
             >
               <div className="w-16 h-16 bg-primary-500/10 dark:bg-primary-500/20 rounded-full flex items-center justify-center mx-auto mb-4 border border-primary-500/30 group-hover:shadow-lg group-hover:shadow-primary-500/40 transition-all duration-300">
                 <info.icon className="w-8 h-8 text-primary-600 dark:text-primary-400" />
@@ -84,31 +97,6 @@ const Contact = () => {
           transition={{ duration: 0.6, delay: 0.4 }}
         >
           <ContactForm />
-        </motion.div>
-
-        {/* Social Links */}
-        <motion.div
-          className="text-center mb-16"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 0.6, delay: 0.5 }}
-        >
-          <h3 className="text-2xl font-semibold text-gray-900 dark:text-gray-100 mb-6">Follow Me</h3>
-          <div className="flex justify-center space-x-6">
-            {socialLinks.map((social) => (
-              <a
-                key={social.label}
-                href={social.href}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-14 h-14 bg-white/50 dark:bg-dark-800/50 rounded-lg flex items-center justify-center hover:bg-primary-500/20 border border-gray-200 dark:border-gray-700 hover:border-primary-500/50 transition-all duration-300 hover:shadow-lg hover:shadow-primary-500/30 hover:scale-110"
-                aria-label={social.label}
-              >
-                <social.icon className="w-7 h-7 text-gray-600 dark:text-gray-400 hover:text-primary-600 dark:hover:text-primary-400 transition-colors" />
-              </a>
-            ))}
-          </div>
         </motion.div>
 
         {/* Favorite Quote Section */}

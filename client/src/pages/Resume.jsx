@@ -40,21 +40,22 @@ const education = [
     degree: 'Bachelor of Science in Computer Science',
     school: 'Georgia State University',
     period: '2022 - 2025',
-    description: 'Focused on full-stack web development and mobile app development projects to build a strong foundation in programming and software engineering.',
+    description: 'Computer science program focused on software engineering, data structures, systems programming, cloud computing, and mobile application development. Developed strong skills in object oriented programming, database design, algorithms, and full stack development through hands on projects and coursework.',
   },
   {
     degree: 'Full-Stack Development Bootcamp',
     school: 'Georgia Institute of Technology',
     period: '2020',
-    description: 'Intensive 6-month program covering full-stack development technologies.',
+    description: 'Completed an intensive 6 month full-stack software development program covering modern web technologies, building responsive applications using JavaScript, React, Node.js, Express, and SQL/NoSQL databases with hands-on project experience across frontend, backend, and database layers.',
   },
 ]
 
 const skills = {
-  'Frontend': ['React', 'JavaScript', 'HTML', 'CSS', 'Tailwind CSS', 'Flutter/Dart'],
+  'Frontend': ['React', 'JavaScript', 'HTML', 'CSS', 'Tailwind CSS', 'Flutter/Dart', 'Vite'],
   'Backend': ['Python', 'Java', 'Node.js', 'Express.js', 'REST APIs'],
   'Database': ['MongoDB', 'MySQL', 'DBeaver', 'PostgreSQL', 'DynamoDB'],
   'DevOps': ['Git', 'AWS', 'Terraform', 'Linux', 'Bash'],
+  'IT': ['TCP/IP', 'LAN/WAN', 'Windows', 'Hardware Troubleshooting', 'System Administration', 'Linux'],
   'Tools': ['VS Code', 'Github', 'VMware', 'Android Studio', 'R'],
   'Soft Skills': ['Customer Service', 'Communication', 'Problem Solving', 'Analytical Thinking', 'Adaptability', 'Time Management'],
 }

@@ -19,18 +19,17 @@ export const projects = [
     {
         id: 2,
         title: 'Beast Mode Fitness',
-        description: 'A social fitness app to connect with friends and share your fitness journey.',
-        technologies: ['Flutter', 'Dart', 'Firebase'],
+        description: 'A fitness and social tracking app built with Flutter and Firebase, featuring workout logs, body metrics, challenges, and social feeds.',
+        technologies: ['Flutter', 'Dart', 'Firebase', 'Provider', 'Cloud Storage'],
         category: 'mobile',
         githubUrl: 'https://github.com/rishitaido/MAD_Project2',
         // demoUrl: '/videos/beast-mode-fitness-demo.mov',
         date: 'Nov 2025 - Dec 2025',
         details: [
-            'Developed a cross-platform mobile application using Flutter and Dart',
-            'Implemented real-time social features including friend connections and activity feeds using Firebase',
-            'Created a comprehensive fitness tracking system with workout logging and progress visualization',
-            'Designed a clean, intuitive UI/UX focusing on user engagement and community building',
-            'Integrated Google Maps API for route tracking and location-based features'
+            'Developed a cross platform fitness tracking mobile application using Flutter and Firebase with real time cloud synchronization, persistent data storage, and scalable backend integration.',
+            'Implemented social features including activity feeds, follower relationships, and leaderboard based challenges using Firebase Firestore for real time data updates and state management.',
+            'Built progress dashboards with workout history, personal record tracking, and interactive data visualization using structured cloud stored datasets.',
+            'Designed a responsive Flutter interface with adaptive layouts, component based architecture, and dynamic Light and Dark theme support across devices.'
         ]
     },
     {

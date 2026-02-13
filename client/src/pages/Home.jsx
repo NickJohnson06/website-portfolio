@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom'
 import { ArrowRight, Download, Github, Linkedin, Mail } from 'lucide-react'
 import { motion } from 'framer-motion'
 import TechStack from '../components/TechStack'
-import resumePdf from '../assets/NICK_JOHNSON_-_.pdf'
+import resumePdf from '../assets/Nick_Johnson_-_.pdf'
 
 const Home = () => {
   const socialLinks = [
@@ -45,7 +45,7 @@ const Home = () => {
             </Link>
             <a
               href={resumePdf}
-              download="NICK_JOHNSON_-_.pdf"
+              download="Nick_Johnson_-_.pdf"
               className="btn-secondary flex items-center justify-center space-x-2 text-lg px-8 py-3"
             >
               <Download size={20} />

@@ -1,6 +1,6 @@
 import { Download } from 'lucide-react'
 import { motion } from 'framer-motion'
-import resumePdf from '../assets/NICK_JOHNSON_-_.pdf'
+import resumePdf from '../assets/Nick_Johnson_-_.pdf'
 
 const experience = [
   {
@@ -96,7 +96,7 @@ const Resume = () => {
           <p className="text-md text-gray-600 dark:text-gray-400">johnsonnick9006@gmail.com (404)-285-5444</p>
           <a
             href={resumePdf}
-            download="NICK_JOHNSON_-_.pdf"
+            download="Nick_Johnson_-_.pdf"
             className="mt-6 inline-block bg-primary-600 hover:bg-primary-700 text-white font-bold py-3 px-6 rounded-lg transition duration-300 flex items-center justify-center gap-2 w-fit mx-auto"
           >
             <Download size={20} />

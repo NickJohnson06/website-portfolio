@@ -2,7 +2,7 @@ import { ExternalLink, Github, PlayCircle, Info } from 'lucide-react'
 import { Link } from 'react-router-dom'
 
 const ProjectCard = ({ project, onOpenDemo }) => {
-  const { id, title, description, technologies, liveUrl, githubUrl, demoUrl } = project
+  const { id, title, description, technologies, githubUrl, demoUrl } = project
 
   return (
     <div className="card group h-full flex flex-col">
@@ -42,16 +42,6 @@ const ProjectCard = ({ project, onOpenDemo }) => {
               <PlayCircle size={16} />
               <span>Watch Demo</span>
             </button>
-          ) : liveUrl ? (
-            <a
-              href={liveUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="btn-primary flex items-center justify-center space-x-2 flex-1"
-            >
-              <PlayCircle size={16} />
-              <span>Watch Demo</span>
-            </a>
           ) : (
             <button
               disabled

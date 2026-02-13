@@ -123,16 +123,6 @@ const ProjectDetails = () => {
                                         <PlayCircle size={20} className="mr-2" />
                                         Watch Demo
                                     </button>
-                                ) : project.liveUrl ? (
-                                    <a
-                                        href={project.liveUrl}
-                                        target="_blank"
-                                        rel="noopener noreferrer"
-                                        className="flex items-center text-gray-600 dark:text-gray-400 hover:text-primary-600 dark:hover:text-primary-400 transition-colors"
-                                    >
-                                        <PlayCircle size={20} className="mr-2" />
-                                        Watch Demo
-                                    </a>
                                 ) : (
                                     <button
                                         disabled

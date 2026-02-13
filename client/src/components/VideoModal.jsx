@@ -58,13 +58,25 @@ const VideoModal = ({ isOpen, onClose, videoUrl, title }) => {
                     </button>
 
                     <div className="w-full h-full">
-                        <iframe
-                            src={getEmbedUrl(videoUrl)}
-                            title={title || 'Project Demo'}
-                            className="w-full h-full"
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                            allowFullScreen
-                        />
+                        {videoUrl && videoUrl.startsWith('/') ? (
+                            <video
+                                src={videoUrl}
+                                controls
+                                autoPlay
+                                playsInline
+                                className="w-full h-full"
+                            >
+                                Your browser does not support the video tag.
+                            </video>
+                        ) : (
+                            <iframe
+                                src={getEmbedUrl(videoUrl)}
+                                title={title || 'Project Demo'}
+                                className="w-full h-full"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                allowFullScreen
+                            />
+                        )}
                     </div>
                 </motion.div>
             </div>

@@ -2,16 +2,9 @@
   "name": "portfolio-root",
   "private": true,
   "scripts": {
-    "dev": "concurrently \"npm:dev:server\" \"npm:dev:client\"",
-    "dev:server": "npm --prefix server run dev",
-    "dev:client": "npm --prefix client run dev",
-    "build": "npm --prefix client run build",
-    "start": "npm --prefix server run start"
+    "dev": "npm --prefix client run dev",
+    "build": "npm --prefix client run build"
   },
-  "devDependencies": {
-    "concurrently": "^8.2.2"
-  },
-  "dependencies": {
-    "mongodb": "^6.18.0"
-  }
+  "devDependencies": {},
+  "dependencies": {}
 }

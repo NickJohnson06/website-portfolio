@@ -1,4 +1,4 @@
-import { ExternalLink, Github, PlayCircle, Info } from 'lucide-react'
+import { Github, PlayCircle, Info } from 'lucide-react'
 import { Link } from 'react-router-dom'
 
 const ProjectCard = ({ project, onOpenDemo }) => {

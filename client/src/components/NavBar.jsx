@@ -21,7 +21,7 @@ const NavBar = () => {
       <div className="max-w-7xl mx-auto px-2 sm:px-4 lg:px-6">
         <div className="flex justify-between h-16">
           <div className="flex items-center">
-            <Link to="/" className="flex items-center">
+            <Link to="/" className="flex items-center" aria-label="Home">
               <img
                 src={`${import.meta.env.BASE_URL}images/website-logo.png`}
                 alt="Website Logo"
@@ -52,6 +52,7 @@ const NavBar = () => {
             <button
               onClick={() => setIsOpen(!isOpen)}
               className="text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 focus:outline-none focus:text-primary-600 dark:focus:text-primary-400 transition-colors duration-300"
+              aria-label="Toggle menu"
             >
               {isOpen ? <X size={24} /> : <Menu size={24} />}
             </button>

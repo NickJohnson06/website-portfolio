@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
 import { Helmet } from 'react-helmet-async'
 import { projects } from '../data/projects'
-import { Github, ExternalLink, PlayCircle } from 'lucide-react'
+import { Github, PlayCircle } from 'lucide-react'
 import VideoModal from '../components/VideoModal'
 
 const ProjectDetails = () => {

@@ -32,10 +32,10 @@ const Home = () => {
           transition={{ duration: 0.8 }}
         >
           <h1 className="text-5xl md:text-7xl font-bold text-gray-900 dark:text-gray-100 mb-8 animate-fade-in">
-            Hi, I'm <span className="text-primary-600 dark:text-primary-400 drop-shadow-[0_0_15px_rgba(234,179,8,0.5)]">Nick</span>
+            Hi, I&apos;m <span className="text-primary-600 dark:text-primary-400 drop-shadow-[0_0_15px_rgba(234,179,8,0.5)]">Nick</span>
           </h1>
           <p className="text-xl md:text-2xl text-gray-600 dark:text-gray-400 mb-10 max-w-2xl mx-auto leading-relaxed">
-            Full-stack developer who's passionate about creating innovative web solutions
+            Full-stack developer who&apos;s passionate about creating innovative web solutions
             and turning ideas into reality through clean, efficient code.
           </p>
 

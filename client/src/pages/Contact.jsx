@@ -61,7 +61,7 @@ const Contact = () => {
             Connect With Me
           </h1>
           <p className="text-xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto">
-            I'm always interested in new opportunities and sharing ideas.
+            I&apos;m always interested in new opportunities and sharing ideas.
             Whether you have a question or just want to say hi, feel free to reach out!
           </p>
         </motion.div>
@@ -113,7 +113,7 @@ const Contact = () => {
         >
           <div className="mx-auto max-w-2xl text-center">
             <blockquote className="border-l-4 border-primary-500 italic pl-6 text-xl md:text-2xl text-gray-700 dark:text-gray-300">
-              "When the power of love overcomes the love of power, the world will know peace."
+              &quot;When the power of love overcomes the love of power, the world will know peace.&quot;
             </blockquote>
             <cite className="block mt-4 text-lg text-gray-500">— Jimi Hendrix</cite>
           </div>

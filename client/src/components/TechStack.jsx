@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import { motion } from 'framer-motion'
 import {
     FaJava,
@@ -13,8 +13,7 @@ import {
 import {
     SiFlutter,
     SiDart,
-    SiExpress,
-    SiPostgresql
+    SiExpress
 } from 'react-icons/si'
 
 const TechStack = () => {
@@ -97,7 +96,7 @@ const TechStack = () => {
 
             {/* Mobile: Grid View */}
             <div className="grid grid-cols-3 sm:grid-cols-4 gap-4 md:hidden max-w-2xl mx-auto px-4">
-                {technologies.map((tech, index) => (
+                {technologies.map((tech) => (
                     <motion.div
                         key={tech.name}
                         className="card text-center p-4"

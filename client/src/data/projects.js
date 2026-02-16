@@ -38,7 +38,7 @@ export const projects = [
         description: 'A travel journal web app that lets you create and manage your travel plans with AI-powered itinerary recommendations.',
         technologies: ['React', 'Express.js', 'Node.js', 'MongoDB', 'Tailwind CSS', 'Meta AI'],
         category: 'fullstack',
-        demoUrl: '/videos/roamlog-demo.mov',
+        //demoUrl: '/videos/roamlog-demo.mov',
         githubUrl: 'https://github.com/NickJohnson06/travel-journal',
         date: 'Nov 2025 - Dec 2025',
         details: [

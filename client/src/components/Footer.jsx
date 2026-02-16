@@ -1,4 +1,5 @@
 import { Github, Linkedin, Mail } from 'lucide-react'
+import { Link } from 'react-router-dom'
 
 const Footer = () => {
   const currentYear = new Date().getFullYear()
@@ -26,24 +27,24 @@ const Footer = () => {
             <h4 className="text-lg font-semibold mb-4 text-primary-600 dark:text-primary-400">Quick Links</h4>
             <ul className="space-y-2">
               <li>
-                <a href="/" className="text-gray-600 dark:text-gray-400 hover:text-primary-600 dark:hover:text-primary-400 transition-all duration-300 hover:drop-shadow-[0_0_8px_rgba(234,179,8,0.5)]">
+                <Link to="/" className="text-gray-600 dark:text-gray-400 hover:text-primary-600 dark:hover:text-primary-400 transition-all duration-300 hover:drop-shadow-[0_0_8px_rgba(234,179,8,0.5)]">
                   Home
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="/projects" className="text-gray-600 dark:text-gray-400 hover:text-primary-600 dark:hover:text-primary-400 transition-all duration-300 hover:drop-shadow-[0_0_8px_rgba(234,179,8,0.5)]">
+                <Link to="/projects" className="text-gray-600 dark:text-gray-400 hover:text-primary-600 dark:hover:text-primary-400 transition-all duration-300 hover:drop-shadow-[0_0_8px_rgba(234,179,8,0.5)]">
                   Projects
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="/resume" className="text-gray-600 dark:text-gray-400 hover:text-primary-600 dark:hover:text-primary-400 transition-all duration-300 hover:drop-shadow-[0_0_8px_rgba(234,179,8,0.5)]">
+                <Link to="/resume" className="text-gray-600 dark:text-gray-400 hover:text-primary-600 dark:hover:text-primary-400 transition-all duration-300 hover:drop-shadow-[0_0_8px_rgba(234,179,8,0.5)]">
                   Resume
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="/contact" className="text-gray-600 dark:text-gray-400 hover:text-primary-600 dark:hover:text-primary-400 transition-all duration-300 hover:drop-shadow-[0_0_8px_rgba(234,179,8,0.5)]">
+                <Link to="/contact" className="text-gray-600 dark:text-gray-400 hover:text-primary-600 dark:hover:text-primary-400 transition-all duration-300 hover:drop-shadow-[0_0_8px_rgba(234,179,8,0.5)]">
                   Contact
-                </a>
+                </Link>
               </li>
             </ul>
           </div>

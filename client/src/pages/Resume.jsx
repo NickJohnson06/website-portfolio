@@ -1,5 +1,6 @@
 import { Download } from 'lucide-react'
 import { motion } from 'framer-motion'
+import { Helmet } from 'react-helmet-async'
 import resumePdf from '../assets/Nick_Johnson_-_.pdf'
 
 const experience = [
@@ -83,6 +84,9 @@ const certifications = [
 const Resume = () => {
   return (
     <div className="min-h-screen bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-gray-200 p-8 transition-colors duration-300">
+      <Helmet>
+        <title>Resume</title>
+      </Helmet>
       <div className="max-w-4xl mx-auto">
         {/* Header Section */}
         <motion.header

@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
+import { Helmet } from 'react-helmet-async'
 import { projects } from '../data/projects'
 import { Github, ExternalLink, PlayCircle } from 'lucide-react'
 import VideoModal from '../components/VideoModal'
@@ -37,6 +38,9 @@ const ProjectDetails = () => {
 
     return (
         <div className="min-h-screen bg-gray-50 dark:bg-gradient-to-b dark:from-dark-950 dark:to-dark-900 py-20 px-4 sm:px-6 lg:px-8 transition-colors duration-300">
+            <Helmet>
+                <title>Project Details</title>
+            </Helmet>
             <motion.div
                 className="max-w-4xl mx-auto"
                 initial={{ opacity: 0, y: 20 }}

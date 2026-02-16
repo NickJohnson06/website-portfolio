@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom'
 import { ArrowRight, Download, Github, Linkedin, Mail } from 'lucide-react'
 import { motion } from 'framer-motion'
+import { Helmet } from 'react-helmet-async'
 import TechStack from '../components/TechStack'
 import resumePdf from '../assets/Nick_Johnson_-_.pdf'
 
@@ -13,6 +14,9 @@ const Home = () => {
 
   return (
     <div>
+      <Helmet>
+        <title>Home</title>
+      </Helmet>
       {/* Hero Section */}
       <section className="min-h-[calc(100vh-4rem)] bg-gray-50 dark:bg-gradient-to-br dark:from-dark-950 dark:via-dark-900 dark:to-dark-950 flex items-center justify-center relative overflow-hidden transition-colors duration-300">
         {/* Animated background elements */}

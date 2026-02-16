@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
+import { Helmet } from 'react-helmet-async'
 import ProjectCard from '../components/ProjectCard'
 import VideoModal from '../components/VideoModal'
 import { projects as projectData } from '../data/projects'
@@ -53,6 +54,9 @@ const Projects = () => {
 
   return (
     <div className="min-h-screen bg-gray-50 dark:bg-gradient-to-b dark:from-dark-950 dark:to-dark-900 py-16 px-4 sm:px-6 lg:px-8 transition-colors duration-300">
+      <Helmet>
+        <title>Projects</title>
+      </Helmet>
       <div className="max-w-7xl mx-auto">
         <motion.div
           className="text-center mb-12"

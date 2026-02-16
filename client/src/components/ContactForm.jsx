@@ -18,50 +18,23 @@ const ContactForm = () => {
     })
   }
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault()
     setIsSubmitting(true)
-    setStatus({ type: '', message: '' })
 
-    try {
-      const isStatic = true; // Flag for static deployment
+    const mailtoLink = `mailto:johnsonnick9006@gmail.com?subject=${encodeURIComponent(formData.subject)}&body=${encodeURIComponent(
+      `Name: ${formData.name}\nEmail: ${formData.email}\n\n${formData.message}`
+    )}`
 
-      if (isStatic) {
-        window.location.href = `mailto:nickjohnson06@gmail.com?subject=${encodeURIComponent(formData.subject)}&body=${encodeURIComponent(`Name: ${formData.name}\nEmail: ${formData.email}\n\n${formData.message}`)}`;
-        setStatus({
-          type: 'success',
-          message: 'Redirecting to your email client...'
-        });
-        setFormData({ name: '', email: '', subject: '', message: '' });
-        setIsSubmitting(false);
-        return;
-      }
+    window.location.href = mailtoLink
 
-      const response = await fetch('/api/contact', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(formData),
-      })
+    setStatus({
+      type: 'success',
+      message: 'Redirecting to your email client...'
+    })
 
-      if (response.ok) {
-        setStatus({
-          type: 'success',
-          message: 'Thank you! Your message has been sent successfully.'
-        })
-        setFormData({ name: '', email: '', subject: '', message: '' })
-      } else {
-        throw new Error('Failed to send message')
-      }
-    } catch (error) {
-      setStatus({
-        type: 'error',
-        message: 'Sorry, there was an error sending your message. Please try again.'
-      })
-    } finally {
-      setIsSubmitting(false)
-    }
+    setFormData({ name: '', email: '', subject: '', message: '' })
+    setIsSubmitting(false)
   }
 
   return (

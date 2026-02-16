@@ -1,5 +1,6 @@
 import { Mail, Phone, MapPin, Github, Linkedin, Twitter } from 'lucide-react'
 import { motion } from 'framer-motion'
+import { Helmet } from 'react-helmet-async'
 import ContactForm from '../components/ContactForm'
 
 
@@ -45,6 +46,9 @@ const Contact = () => {
 
   return (
     <div className="section-padding bg-gray-50 dark:bg-gradient-to-b dark:from-dark-950 dark:to-dark-900 transition-colors duration-300">
+      <Helmet>
+        <title>Contact</title>
+      </Helmet>
       <div className="max-w-6xl mx-auto">
         {/* Header */}
         <motion.div

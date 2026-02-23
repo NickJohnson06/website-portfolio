@@ -97,6 +97,12 @@ const ProjectDetails = () => {
                                 ))}
                             </div>
 
+                            {project.header && (
+                                <p className="text-gray-700 dark:text-gray-300 mb-6 text-lg font-medium leading-relaxed">
+                                    {project.header}
+                                </p>
+                            )}
+
                             <ul className="space-y-3 mb-6">
                                 {project.details.map((detail, i) => (
                                     <li key={i} className="flex items-start text-gray-600 dark:text-gray-300">
@@ -105,6 +111,14 @@ const ProjectDetails = () => {
                                     </li>
                                 ))}
                             </ul>
+
+                            {project.contributors && (
+                                <div className="mb-6 pt-4 border-t border-gray-100 dark:border-gray-800/30">
+                                    <p className="text-sm text-gray-500 dark:text-gray-400">
+                                        <span className="font-semibold text-gray-700 dark:text-gray-300">Contributors:</span> {project.contributors.join(', ')}
+                                    </p>
+                                </div>
+                            )}
 
                             <div className="flex gap-4 pt-4 border-t border-gray-200 dark:border-gray-700/50">
                                 {project.githubUrl && (

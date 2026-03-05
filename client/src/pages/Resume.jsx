@@ -53,14 +53,38 @@ const education = [
 
 const skills = {
   'Frontend': ['React', 'JavaScript', 'HTML', 'CSS', 'Tailwind CSS', 'Flutter/Dart', 'Vite'],
-  'Backend': ['Python', 'Java', 'Node.js', 'Express.js', 'REST APIs'],
-  'Database': ['MongoDB', 'MySQL', 'DBeaver', 'PostgreSQL', 'DynamoDB'],
-  'DevOps': ['Git', 'AWS', 'Terraform', 'Linux', 'Bash'],
-  'IT': ['TCP/IP', 'LAN/WAN', 'Windows', 'Hardware Troubleshooting', 'System Administration', 'Linux'],
-  'Tools': ['VS Code', 'Github', 'VMware', 'Android Studio', 'R'],
-  'Soft Skills': ['Customer Service', 'Communication', 'Problem Solving', 'Analytical Thinking', 'Adaptability', 'Time Management'],
-}
 
+  'Backend': ['Python', 'Java', 'Node.js', 'Express.js', 'REST APIs'],
+
+  'Database': ['MongoDB', 'MySQL', 'DBeaver', 'PostgreSQL', 'DynamoDB'],
+
+  'DevOps': ['Git', 'AWS', 'Terraform', 'Linux', 'Bash'],
+
+  'IT': [
+    'TCP/IP',
+    'DNS',
+    'DHCP',
+    'LAN/WAN',
+    'Routing & Switching',
+    'Active Directory',
+    'Windows',
+    'System Administration',
+    'Network Troubleshooting',
+    'Hardware Troubleshooting'
+  ],
+
+  'Tools': ['VS Code', 'GitHub', 'Jira', 'VMware', 'Android Studio', 'R', 'SSH'],
+
+  'Soft Skills': [
+    'Customer Service',
+    'Communication',
+    'Problem Solving',
+    'Analytical Thinking',
+    'Adaptability',
+    'Time Management',
+    'Technical Documentation'
+  ],
+};
 const certifications = [
   {
     name: 'AWS Certified Cloud Practitioner (In-Progress)',

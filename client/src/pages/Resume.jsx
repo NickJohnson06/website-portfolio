@@ -9,9 +9,9 @@ const experience = [
     company: 'Ace Hardware',
     period: 'AUG 2023 - Present',
     description: [
-      'Assisted customers with product selection, hardware questions, troubleshooting, and DIY guidance.',
-      'Maintained accurate inventory records and operated POS/inventory systems to support daily operations.',
-      'Strengthened problem-solving skills through identifying issues and helping customers find practical solutions.',
+      'Resolved 20+ customer questions per shift related to product selection, troubleshooting, and DIY solutions, helping customers find the right materials faster and reducing repeat assistance needs.',
+      'Processed transactions and updated inventory through POS and stock systems to support accurate product availability and smoother day to day store operations.',
+      'Assisted customers across multiple departments in a fast paced retail environment, balancing problem solving, service, and operational tasks during high traffic periods.',
     ],
   },
   {
@@ -19,9 +19,9 @@ const experience = [
     company: 'Staples',
     period: 'NOV 2022 - MAR 2023',
     description: [
-      'Helped customers navigate services, promotions, and product options while maintaining a positive user experience.',
-      'Organized store layouts following detailed planograms and ensured product availability through proper stock handling.',
-      'Enhanced communication and customer support abilities while resolving in-store issues.',
+      'Helped customers evaluate products, promotions, and store services, contributing to a smooth purchasing experience and stronger day to day customer support.',
+      'Executed planograms and restocked merchandise to maintain shelf accuracy, product visibility, and item availability across assigned areas.',
+      'Resolved in store questions and service issues with clear communication and timely follow through, helping keep transactions and customer requests moving efficiently.',
     ],
   },
   {
@@ -29,9 +29,9 @@ const experience = [
     company: "Del Sur Taqueria & Cantina",
     period: 'MAY 2020 - JUNE 2022',
     description: [
-      'Created prep schedules, organized workflows, and ensured consistency in quality and safety standards.',
-      'Trained and onboarded new employees, improving team efficiency and maintaining clear documentation of procedures',
-      'Managed inventory levels and verified accuracy during deliveries and stocking.',
+      'Built prep schedules and standardized back of house workflows to improve consistency, support food safety, and keep service on schedule during busy shifts.',
+      'Trained and on-boarded 10+ employees on daily procedures and expectations, helping shorten ramp up time and improve team consistency.',
+      'Coordinated prep operations in a high volume environment, maintaining organization, quality standards, and reliable support for front of house service.',
     ],
   },
 ]
@@ -66,7 +66,6 @@ const skills = {
     'DHCP',
     'LAN/WAN',
     'Routing & Switching',
-    'Active Directory',
     'Windows',
     'System Administration',
     'Network Troubleshooting',
